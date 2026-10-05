@@ -4,12 +4,13 @@ import type * as Preset from '@docusaurus/preset-classic';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
-// NOTE: openstx.org's exact page paths could not be verified from this
-// environment (outbound network access to openstx.org is blocked here).
-// The hrefs below are best-guess paths matching a typical OpenSTX Foundation
-// site structure (About / Members / Participate / Publications / Contact) —
-// double check and adjust them against the live site before merging.
-const OPENSTX_SITE_URL = 'https://openstx.org';
+// NOTE: openstxfoundation.org's exact page paths could not be verified from
+// this environment (outbound network access to openstxfoundation.org is
+// blocked here). The hrefs below are best-guess paths matching a typical
+// OpenSTX Foundation site structure (About / Members / Participate /
+// Publications / Contact) — double check and adjust them against the live
+// site before merging.
+const OPENSTX_SITE_URL = 'https://openstxfoundation.org';
 
 const config: Config = {
   title: 'OpenSTX Specification',
@@ -21,7 +22,7 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  url: 'https://docs.openstx.org',
+  url: 'https://docs.openstxfoundation.org',
   baseUrl: '/',
 
   // GitHub pages deployment config.
@@ -143,7 +144,7 @@ const config: Config = {
         {
           title: 'More',
           items: [
-            {label: 'openstx.org', href: OPENSTX_SITE_URL},
+            {label: 'openstxfoundation.org', href: OPENSTX_SITE_URL},
             {
               label: 'public-specification (GitHub)',
               href: 'https://github.com/openstx/public-specification',

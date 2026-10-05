@@ -2,7 +2,7 @@
 
 The documentation site for the OpenSTX specification, built with
 [Docusaurus](https://docusaurus.io/). Deployed at
-[docs.openstx.org](https://docs.openstx.org).
+[docs.openstxfoundation.org](https://docs.openstxfoundation.org).
 
 The specification content itself lives in a separate repository,
 [openstx/public-specification](https://github.com/openstx/public-specification),
