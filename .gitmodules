@@ -1,0 +1,4 @@
+[submodule "specification"]
+	path = specification
+	url = https://github.com/openstx/public-specification.git
+	branch = main
