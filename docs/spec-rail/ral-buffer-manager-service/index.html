@@ -1,0 +1,518 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-spec-rail/ral-buffer-manager-service" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>RAL Buffer Manager Service | OpenSTX Specification</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true name=twitter:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true property=og:url content=https://docs.openstxfoundation.org/docs/spec-rail/ral-buffer-manager-service /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="RAL Buffer Manager Service | OpenSTX Specification"/><meta data-rh=true name=description content=Introduction /><meta data-rh=true property=og:description content=Introduction /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://docs.openstxfoundation.org/docs/spec-rail/ral-buffer-manager-service /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-buffer-manager-service hreflang=en /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-buffer-manager-service hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/category/ral-services","name":"RAL Services","position":1},{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/spec-rail/ral-buffer-manager-service","name":"RAL Buffer Manager Service","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.55f33b09.css /><script src=/assets/js/runtime~main.f4cd4d72.js defer></script><script src=/assets/js/main.b3cd52e2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-d58")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/openstx-logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">OpenSTX</b></a><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/category/core-services>Specification</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/core-services><span class=categoryLinkLabel_W154>Core Services</span></a><button aria-label="Expand sidebar category 'Core Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/general-description><span class=categoryLinkLabel_W154>General Description</span></a><button aria-label="Expand sidebar category 'General Description'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/ral-services><span class=categoryLinkLabel_W154>RAL Services</span></a><button aria-label="Collapse sidebar category 'RAL Services'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/introduction><span class=linkLabel_WmDU>Introduction</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/spec-rail/ral-buffer-manager-service><span class=linkLabel_WmDU>RAL Buffer Manager Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-config-service><span class=linkLabel_WmDU>RAL Configuration Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-execution-service><span class=linkLabel_WmDU>RAL Execution Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-overview><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-security-service><span class=linkLabel_WmDU>RAL Security Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-time-service><span class=linkLabel_WmDU>RAL Time Service</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/security><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/glossary><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/ral-services><span>RAL Services</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>RAL Buffer Manager Service</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class=admonitionHeading_Gvgb><span class=admonitionIcon_Rf37><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>Draft specification — subject to change.</div><div class=admonitionContent_BuS1>This is not an approved release.</div></div><div class="theme-doc-markdown markdown"><header><h1>RAL Buffer Manager Service</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=introduction>Introduction<a href=#introduction class=hash-link aria-label="Direct link to Introduction" title="Direct link to Introduction" translate=no>​</a></h2>
+<p>The RAL Buffer Manager is responsible for managing the lifecycle of a <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a>, and for the protection disposition of the octets it holds.</p>
+<p>The management of packet buffers is meant to accomplish several goals:</p>
+<ol>
+<li class="">Adapt to different hardware architectures:
+<ol>
+<li class="">MCU and radio peripherals with substantial DMA capabilities (e.g., integrated in a single SoC).</li>
+<li class="">Separated MCU and radio ICs connected via slower external interfaces with limited or missing DMA capabilities.</li>
+</ol>
+</li>
+<li class="">Minimize data copying / data transfers.</li>
+<li class="">Allow the caller to state what protection each octet requires without knowing the on-air frame layout.</li>
+</ol>
+<!-- -->
+<!-- -->
+<p>The ultimate goal of the above is to create a buffer abstraction that enables efficient operations on different types of hardware, without requiring the user to handle hardware-specific details.</p>
+<p>The normative behavior is defined in sections <a href=#commands class="">Commands</a> and <a href=#events class="">Events</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=packet-buffer-specializations>Packet Buffer Specializations<a href=#packet-buffer-specializations class=hash-link aria-label="Direct link to Packet Buffer Specializations" title="Direct link to Packet Buffer Specializations" translate=no>​</a></h3>
+<p>As defined in <a class="" href=/docs/spec-rail/ral-overview#buffer-specializations>§Packet Buffer</a>, the standard distinguishes two types of <code>PacketBuffers</code>:</p>
+<ol>
+<li class=""><code>GeneralPurposePacketBuffer</code> (GPPB),</li>
+<li class=""><code>TightlyCoupledPacketBuffer</code> (TCPB).</li>
+</ol>
+<p>When scheduling a reception or a transmission (as defined in <a class="" href=/docs/spec-rail/ral-execution-service>§RAL Executor</a>), the caller can choose which type of buffer is used by allocating the preferred one and passing it through the <code>packet</code> parameter.</p>
+<p>Within this document, the term “radio buffer” refers to a buffer located close to the radio peripheral, regardless of whether it is used explicitly through a TCPB, or implicitly through a GPPB.</p>
+<p>The radio buffer associated with a TCPB is retained, with its content available for reuse across radio operations, until <code>RAL_Buffer_Delete_Command</code> dissolves the association. By contrast, the radio buffer backing a GPPB (if any) may be freed as soon as its data has been fetched into RAM.</p>
+<p>Support for GPPBs is mandatory, whereas support for TCPBs is optional: an implementation whose target platform does not benefit from TCPBs may provide GPPBs only. GPPBs can always be used, even in systems that also support TCPBs (e.g., when there is no need to directly reuse the data in the associated radio buffer).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=psdu-partitioning-and-region-addressing>PSDU Partitioning and Region Addressing<a href=#psdu-partitioning-and-region-addressing class=hash-link aria-label="Direct link to PSDU Partitioning and Region Addressing" title="Direct link to PSDU Partitioning and Region Addressing" translate=no>​</a></h3>
+<p>The frame content of a <code>PacketBuffer</code> may be partitioned into three regions, declared through <a href=#ral_buffer_configure_regions_command class="">§RAL_Buffer_Configure_Regions_Command</a>, excluding the FCS as defined in <a class="" href=/docs/spec-rail/ral-overview#psdulength>§PSDULength</a>. Partitioning applies to both buffer specializations.</p>
+<p>The regions and their corresponding level of protection (where level refers to data being authenticated, encrypted, or both) are listed in the following table.</p>
+<p>The cipher that authenticates and encrypts the regions is specified in <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Region Order<th>Name<th>Authentication<th>Encryption<tbody><tr><td>1st<td><code>BUFFER_REGION_UNSECURED</code><td>No<td>No<tr><td>2nd<td><code>BUFFER_REGION_AUTHENTICATED</code><td>Yes<td>No<tr><td>3rd<td><code>BUFFER_REGION_ENCRYPTED</code><td>Yes<td>Yes</table>
+<p>Octet ranges within the PSDU may be addressed in two ways, selected through the <code>addressing_mode</code> parameter of the respective command:</p>
+<ol>
+<li class=""><strong>Absolute</strong> — <code>from</code> and <code>to</code> as offsets into the PSDU, where offset <code>0</code> addresses the first PSDU octet. This mode is used throughout this document for unsecured buffers.</li>
+<li class=""><strong>Region-relative</strong> — <code>from</code> and <code>to</code> as offsets into the <em>named region</em> of the PSDU, where offset <code>0</code> addresses the first offset of the given region. The RAL translates region-relative addresses to absolute ones using the configured partition. An offset beyond the configured size of the named region is invalid. The RAL rejects such a range rather than truncating it or mapping any part of it into a neighbouring region, so that the protection level of every addressed octet matches the region named by the caller.</li>
+</ol>
+<p>Region-relative addressing exists so that the caller can state what protection each octet requires without knowing where the octet lands on air. The caller addresses regions by name and by offset within the region; it does not address the protocol-specific frame. On a PHY whose on-air field order differs from region order, the RAL performs the necessary rearrangement as part of <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a>.</p>
+<p>Absolute addressing remains available on a partitioned buffer, but is <strong>not</strong> equivalent: a range given absolutely is not checked against region boundaries, and on a PHY requiring rearrangement the absolute positions before and after commit differ. A caller that has declared a partition SHOULD use region-relative addressing for octets whose protection matters.</p>
+<!-- -->
+<p>An unsecured buffer is declared explicitly, by a partition in which <code>BUFFER_REGION_AUTHENTICATED</code> and <code>BUFFER_REGION_ENCRYPTED</code> have length zero, so that all octets belong to <code>BUFFER_REGION_UNSECURED</code>. Omitting the declaration does not yield an unsecured buffer, as the scheduling commands reject a buffer without a partition.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=coherence-and-the-point-of-commit>Coherence and the point of commit<a href=#coherence-and-the-point-of-commit class=hash-link aria-label="Direct link to Coherence and the point of commit" title="Direct link to Coherence and the point of commit" translate=no>​</a></h3>
+<p>The Buffer Manager provides a unified interface for accessing and modifying contents of any <code>PacketBuffer</code> type. It defines a coherence protocol between <code>buffer_data</code> and the radio buffer. Consistent reads are enabled by calling the <a href=#ral_buffer_ensure_available_command class="">§RAL_Buffer_Ensure_Available_Command</a>. Modifications can be reported using the <a href=#ral_buffer_mark_touched_command class="">§RAL_Buffer_Mark_Touched_Command</a>, with write-back coherence guaranteed after <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a> completes successfully. Moreover, this interface allows selectively reading and modifying only small chunks of the PSDU. This could be used for example in Glossy, so that forwarders may only need to modify the relay counter, leaving the rest untouched, or in Chaos to read only the progress bits and act accordingly if possible. Note that the benefits of small-chunk operations are most pronounced in setups where the MCU and radio are connected via a slower external interface.</p>
+<!-- -->
+<p>On a partitioned buffer, the time between <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a> and the actual transmission is when the RAL applies security: region rearrangement into on-air order, encryption of <code>BUFFER_REGION_ENCRYPTED</code>, and computation of the MIC over <code>BUFFER_REGION_AUTHENTICATED</code> and <code>BUFFER_REGION_ENCRYPTED</code>. There is no separate region-commit step. The consequence for the caller is that the octets it writes are plaintext, unless encrypted at a higher layer, for their whole observable lifetime.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ownership-of-buffer-data>Ownership of Buffer Data<a href=#ownership-of-buffer-data class=hash-link aria-label="Direct link to Ownership of Buffer Data" title="Direct link to Ownership of Buffer Data" translate=no>​</a></h3>
+<p>While a <code>PacketBuffer</code> is used for a radio operation, the RAL takes temporary ownership of octets within <code>buffer_data</code>. The caller cannot safely use an octet range while that range is RAL-owned: its contents are neither guaranteed to be valid nor stable, and its layout need not match the partition the caller declared.</p>
+<p><strong>Example.</strong> For a <code>GeneralPurposePacketBuffer</code>, the RAL may directly rearrange octets into PHY-specific PPDU order or encrypt them in place, so while a range is RAL-owned the octets the caller wrote are not necessarily the octets it would read back.</p>
+<!-- -->
+<p><strong>Ownership transfer on TX.</strong> An octet range enters <code>BUFFER_OWNERSHIP_STATE_RAL</code> once it is <em>committed</em> for a transmission initiated with the <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_schedule_command>§RAL_Tx_Schedule_Command</a>. The RAL returns all of <code>buffer_data</code> to <code>BUFFER_OWNERSHIP_STATE_CALLER</code> at the latest upon <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_schedule_commandendevent>§RAL_Tx_Schedule_CommandEndEvent</a>, and earlier where it emits <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_buffer_released_commandevent>§RAL_Tx_Buffer_Released_CommandEvent</a>. Before returning ownership, the RAL restores every octet it modified within the <code>psdu</code> region to the value the caller had provided at the point of commit.</p>
+<p><strong>Ownership transfer on RX.</strong> All of <code>buffer_data</code> enters <code>BUFFER_OWNERSHIP_STATE_RAL</code> when <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_schedule_command>§RAL_Rx_Schedule_Command</a> is accepted, and returns to <code>BUFFER_OWNERSHIP_STATE_CALLER</code> upon <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_schedule_commandendevent>§RAL_Rx_Schedule_CommandEndEvent</a>. Certain octet ranges may however be made available to the caller for reading before that point, following the emission of a corresponding <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_data_available_commandevent>§RAL_Rx_Data_Available_CommandEvent</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=related-documents>Related Documents<a href=#related-documents class=hash-link aria-label="Direct link to Related Documents" title="Direct link to Related Documents" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Document<th>Description<tbody><tr><td><a class="" href=/docs/spec-rail/introduction>RAL Introduction</a><td>Introduction to the Radio Abstraction Layer<tr><td><a class="" href=/docs/spec-rail/ral-execution-service>RAL Executor</a><td>Relies on <code>PacketBuffer</code>s to carry the PSDUs it transmits and receives. Its <code>RAL_Tx_Data_Commit_Command</code> is where region rearrangement, encryption and MIC computation occur.<tr><td><a class="" href=/docs/spec-rail/ral-security-service>RAL Security Service</a><td>Specifies the cipher that protects the regions, and the key it uses.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=commands>Commands<a href=#commands class=hash-link aria-label="Direct link to Commands" title="Direct link to Commands" translate=no>​</a></h2>
+<p>The command set divides into three groups. The <strong>lifecycle commands</strong> (<code>Create</code>, <code>Delete</code>) manage <code>PacketBuffer</code> instances. The <strong>content commands</strong> (<code>Ensure_Available</code>, <code>Mark_Touched</code>) move octets between <code>buffer_data</code> and the radio buffer. The <strong>region command</strong> (<code>Configure_Regions</code>) declares the three-region partition; the partition is used by <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a>.</p>
+<p><strong>Typical secured TX sequence.</strong> <code>RAL_Buffer_Create_Command</code> → <code>RAL_Buffer_Configure_Regions_Command</code> → (write data to the buffer) → <code>RAL_Buffer_Mark_Touched_Command</code> (per region) → <code>RAL_Tx_Schedule_Command</code> with the <code>nonce</code> → <code>RAL_Tx_Data_Commit_Command</code> (incrementally, or once for the entire buffer) → (RAL encrypts and computes the MIC) → <code>RAL_Tx_Schedule_CommandEndEvent</code>.</p>
+<p><strong>Typical secured RX sequence.</strong> <code>RAL_Buffer_Create_Command</code> → <code>RAL_Buffer_Configure_Regions_Command</code> → <code>RAL_Rx_Schedule_Command</code> with <code>nonce_implicit_commit = FALSE</code> and the index of the last octet the nonce is formed from in <code>psdu_trigger_indexes</code> → <code>RAL_Rx_Data_Available_CommandEvent</code> (at that octet) → <code>RAL_Buffer_Ensure_Available_Command</code> (over the octets the nonce is formed from) → <code>RAL_Nonce_Commit_Command</code> → (frame arrives, RAL decrypts and verifies) → <code>RAL_Rx_Schedule_CommandEndEvent</code> → <code>RAL_Buffer_Ensure_Available_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_create_command><code>RAL_Buffer_Create_Command</code><a href=#ral_buffer_create_command class=hash-link aria-label="Direct link to ral_buffer_create_command" title="Direct link to ral_buffer_create_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Creates an instance of a <code>PacketBuffer</code>, as defined in <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>buffer_type</code><td>Enumeration<td><code>BUFFER_TYPE_GENERAL_PURPOSE</code>, <code>BUFFER_TYPE_TIGHTLY_COUPLED</code><td>Specifies the type of the buffer to be created.<tr><td><code>buffer_data</code><td>Octet String<td>—<td>Designates the caller-provided octet region to be used for the <code>PacketBuffer</code>'s <code>buffer_data</code>. For a <code>GeneralPurposePacketBuffer</code>, this region holds the authoritative payload. For a <code>TightlyCoupledPacketBuffer</code>, it serves as the staging region (or "shadow buffer") into and out of which the RAL transfers octets through commands <a href=#ral_buffer_ensure_available_command class="">Ensure_Available</a>, <a href=#ral_buffer_mark_touched_command class="">Mark_Touched</a>, and <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>Commit_Tx_Data</a>; its contents are defined only within that protocol.<tr><td><code>buffer_size</code><td>Unsigned Integer<td>—<td>Number of octets that fit into <code>buffer_data</code>.</table>
+<p><strong>Description:</strong></p>
+<p>The RAL MUST create a <code>PacketBuffer</code>, associate it with the provided <code>buffer_data</code> region, and immediately emit a <code>RAL_Buffer_Create_CommandEndEvent</code> with <code>command_status = SUCCESS</code> and the <code>packet_buffer</code> parameter referring to the created <code>PacketBuffer</code> instance.</p>
+<p>The RAL MUST support all PSDU lengths (and corresponding minimal <code>buffer_size</code>s), the only limitation being the PHY-specific maximal PSDU length.</p>
+<p>The RAL MUST create the <code>PacketBuffer</code> instance according to the requested <code>buffer_type</code>:</p>
+<ul>
+<li class="">a <code>GeneralPurposePacketBuffer</code> (GPPB) if <code>buffer_type = BUFFER_TYPE_GENERAL_PURPOSE</code>,</li>
+<li class="">a <code>TightlyCoupledPacketBuffer</code> (TCPB) if <code>buffer_type = BUFFER_TYPE_TIGHTLY_COUPLED</code>.</li>
+</ul>
+<p>The caller MUST allocate sufficient space for <code>buffer_data</code>, covering the PSDU plus the headroom and tailroom required by the RAL, the latter two together sized by the <a class="" href=/docs/spec-rail/ral-config-service#generic-configuration-attributes>bufferSpaceMargin</a> attribute.</p>
+<!-- -->
+<p><em>Note.</em> Additional headroom may be needed, for instance, for a length-field imposed by the PPDU format. The tailroom can be used to accommodate a MIC, when authentication is enabled.</p>
+<!-- -->
+<p>The RAL MAY place the PSDU freely within <code>buffer_data</code>, provided the PSDU occupies a single contiguous octet region, and it MUST set the <code>psdu</code> reference in the returned <code>packet_buffer</code> accordingly and MUST NOT change it throughout the <code>PacketBuffer</code>'s lifetime.</p>
+<!-- -->
+<p>A newly created <code>PacketBuffer</code> has no partition in the sense of <a href=#psdu-partitioning-and-region-addressing class="">§PSDU Partitioning and Region Addressing</a>. The three region references specified in <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a> remain undefined until a partition is declared through <a href=#ral_buffer_configure_regions_command class="">§RAL_Buffer_Configure_Regions_Command</a>. Until then, every command that depends on the partition fails, as specified for that command.</p>
+<p>If the command fails, the RAL MUST immediately emit a <code>RAL_Buffer_Create_CommandEndEvent</code> whose <code>command_status</code> is not <code>SUCCESS</code>, using either a status value defined in subsequent paragraphs or a RAL-specific one.</p>
+<p>The following rules (1-2) apply if <code>buffer_type = BUFFER_TYPE_TIGHTLY_COUPLED</code>:</p>
+<ol>
+<li class="">If no sufficient radio buffer space is available, i.e., when the requested <code>buffer_size</code> is greater than the value returned by <code>RAL_Buffer_Get_TCPB_Available_Capacity_Command</code>, then the RAL MUST immediately emit <code>RAL_Buffer_Create_CommandEndEvent</code> with <code>command_status = ERROR_BUFFER_CREATE_TCPB_NO_SPACE_AVAILABLE</code>.</li>
+<li class="">The RAL MUST ensure that the created TCPB retains exclusive ownership of the underlying radio buffer, until the association dissolves with the completion of the <code>RAL_Buffer_Delete_Command</code> for this TCPB.</li>
+</ol>
+<!-- -->
+<p>If the RAL implementation permits concurrent access, it MUST ensure that this command is atomic.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_delete_command><code>RAL_Buffer_Delete_Command</code><a href=#ral_buffer_delete_command class=hash-link aria-label="Direct link to ral_buffer_delete_command" title="Direct link to ral_buffer_delete_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Deletes the given <code>PacketBuffer</code> instance.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>packet_buffer</code><td><a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§PacketBuffer</a><td>-<td>The <code>PacketBuffer</code> instance to be deleted.</table>
+<p><strong>Description:</strong></p>
+<p>If the <code>packet_buffer</code> is is currently used in an active <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_schedule_command>§RAL_Rx_Schedule_Command</a> or <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_schedule_command>§RAL_Tx_Schedule_Command</a>, the RAL MUST refuse the command, emitting <code>RAL_Buffer_Delete_CommandEndEvent</code> with <code>command_status = ERROR_BUFFER_NOT_READY</code>.</p>
+<p>Otherwise, the RAL MUST delete the <code>packet_buffer</code> immediately and emit <code>RAL_Buffer_Delete_CommandEndEvent</code> with <code>command_status = SUCCESS</code>.</p>
+<p>If the given the buffer's <code>buffer_type</code> is <code>BUFFER_TYPE_TIGHTLY_COUPLED</code>, then the RAL MUST release the underlying radio buffer before emitting <code>RAL_Buffer_Delete_CommandEndEvent</code>, so that the radio buffer is available for future use.</p>
+<p>Deleting a <code>PacketBuffer</code> discards any configured region partition. A RAL that has a cipher MUST set every octet of <code>buffer_data</code> to zero before releasing it (a received frame leaves its decrypted payload there). A <code>PacketBuffer</code> holds no key material: the key is installed in the RAL through <a class="" href=/docs/spec-rail/ral-security-service#ral_crypto_configurekey_command>§RAL_Crypto_ConfigureKey_Command</a>, and the nonce is supplied with each scheduling command.</p>
+<!-- -->
+<p><em>Note.</em> After this command's completion, the memory region that was used for <code>PacketBuffer</code>'s <code>buffer_data</code> (regardless of the buffer type), is no longer guaranteed to contain valid data.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_configure_regions_command><code>RAL_Buffer_Configure_Regions_Command</code><a href=#ral_buffer_configure_regions_command class=hash-link aria-label="Direct link to ral_buffer_configure_regions_command" title="Direct link to ral_buffer_configure_regions_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Declares the three-region partition of the PSDU.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>packet_buffer</code><td>Reference to a <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§PacketBuffer</a><td>-<td>The referenced <code>PacketBuffer</code> instance for which the partition is configured.<tr><td><code>region_unsecured_size</code><td>Unsigned Integer<td>—<td>Size of <code>BUFFER_REGION_UNSECURED</code>.<tr><td><code>region_authenticated_size</code><td>Unsigned Integer<td>—<td>Size of <code>BUFFER_REGION_AUTHENTICATED</code>.<tr><td><code>psdu_length</code><td><code>PSDULength</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#psdulength>§PSDULength</a>, and MUST NOT be less than <code>region_unsecured_size + region_authenticated_size + F</code><td>Total PSDU length; <code>BUFFER_REGION_ENCRYPTED</code> ends at <code>psdu_length - F</code>.</table>
+<p><strong>Description:</strong></p>
+<p><code>RAL_Buffer_Configure_Regions_Command</code> declares the partition for the given <code>packet_buffer</code> instance. Two parameters fix the region boundaries, and <code>psdu_length - F</code> fixes the end of the third region, so any region may be zero-length.</p>
+<p>In accordance with the requested partition, the RAL MUST set the <code>packet_buffer</code>'s region pointers <code>psdu_region_unsecured</code>, <code>psdu_region_authenticated</code>, and <code>psdu_region_encrypted</code>, and their corresponding sizes <code>psdu_region_unsecured_size</code>, <code>psdu_region_authenticated_size</code>, and <code>psdu_region_encrypted_size</code>. The RAL MUST set the <code>packet_buffer</code>'s <code>psdu_length</code> to the value of the <code>psdu_length</code> parameter. The <code>psdu</code> reference is fixed at <a href=#ral_buffer_create_command class="">§RAL_Buffer_Create_Command</a> and MUST NOT be modified by this command.</p>
+<p>If any octet of the given <code>PacketBuffer</code> is in <code>BUFFER_OWNERSHIP_STATE_RAL</code>, the RAL MUST refuse the command, emitting <code>RAL_Buffer_Configure_Regions_CommandEndEvent</code> with <code>command_status = ERROR_BUFFER_NOT_READY</code>, and the previously configured partition MUST remain in effect.</p>
+<p>If <code>psdu_length</code> exceeds <code>buffer_size - bufferSpaceMargin</code> of the given <code>PacketBuffer</code>, the RAL MUST refuse the command, emitting <code>RAL_Buffer_Configure_Regions_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_BUFFER_RANGE</code>, and the previously configured partition MUST remain in effect.</p>
+<p>A RAL that has a cipher MUST support every partition. A RAL that has no cipher supports only partitions whose <code>BUFFER_REGION_AUTHENTICATED</code> and <code>BUFFER_REGION_ENCRYPTED</code> are empty; if the requested partition has a non-empty one, the RAL MUST refuse the command, emitting <code>RAL_Buffer_Configure_Regions_CommandEndEvent</code> with <code>command_status = ERROR_UNSUPPORTED_PARTITION</code>, and the previously configured partition MUST remain in effect. Whether a key is installed does not change which partitions the RAL supports; the scheduling commands check the key.</p>
+<p>If <code>BUFFER_REGION_AUTHENTICATED</code> or <code>BUFFER_REGION_ENCRYPTED</code> of the partition is non-empty and <code>psdu_length</code> plus <code>micSize</code> exceeds <code>PHY_MAX_PSDU_LENGTH</code>, the RAL MUST refuse the command, emitting <code>RAL_Buffer_Configure_Regions_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_BUFFER_RANGE</code>, and the previously configured partition MUST remain in effect.</p>
+<p><em>Note.</em> A region pointer conveys the <em>position</em> of a region, not the validity of its contents. Only ranges requested through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_ensure_available_command>RAL_Buffer_Ensure_Available_Command</a> are guaranteed coherent. On a <code>TightlyCoupledPacketBuffer</code>, octets outside that range may not yet have been fetched, and reading them through a pointer yields undefined data.</p>
+<p>This command MUST be issued before <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_schedule_command>§RAL_Tx_Schedule_Command</a> on the TX path and before <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_schedule_command>§RAL_Rx_Schedule_Command</a> on the RX path, since both depend on the region boundaries.</p>
+<p>On the RX path, <code>psdu_length</code> declares the longest PSDU the reception accepts, not counting the MIC.</p>
+<p>If the partition was configured successfully, the RAL MUST emit <code>RAL_Buffer_Configure_Regions_CommandEndEvent</code> with <code>command_status = SUCCESS</code>.</p>
+<p>Reconfiguring a partition after content has been written discards no content, but the octets already written are reinterpreted under the new boundaries. A caller that changes the partition SHOULD rewrite the affected regions.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_ensure_available_command><code>RAL_Buffer_Ensure_Available_Command</code><a href=#ral_buffer_ensure_available_command class=hash-link aria-label="Direct link to ral_buffer_ensure_available_command" title="Direct link to ral_buffer_ensure_available_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Ensures that the specified octet range is available in the <code>PacketBuffer</code>'s <code>buffer_data</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>packet_buffer</code><td><a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§PacketBuffer</a><td>-<td>The referenced <code>PacketBuffer</code> instance.<tr><td><code>addressing_mode</code><td>Enumeration<td><code>ABSOLUTE</code>, <code>BUFFER_REGION_UNSECURED</code>, <code>BUFFER_REGION_AUTHENTICATED</code>, <code>BUFFER_REGION_ENCRYPTED</code><td>Selects how <code>from</code> and <code>to</code> are interpreted. <code>ABSOLUTE</code> addresses the <code>psdu</code> directly; the three region values address the named region of the configured partition.<tr><td><code>from</code><td>Unsigned Integer<td><code>[0, S]</code>, where <code>S</code> is <code>psdu_length - F</code> if <code>addressing_mode = ABSOLUTE</code>, otherwise the configured size of the named region<td>Start offset (inclusive) of the requested octet range.<tr><td><code>to</code><td>Unsigned Integer<td><code>[0, S]</code>, where <code>S</code> is as for <code>from</code><td>End offset (exclusive) of the requested octet range.</table>
+<p><strong>Description:</strong></p>
+<p>The RAL MUST ensure that the octet range <code>[from, to)</code> contains valid data.</p>
+<p>Where <code>addressing_mode</code> names one of the three regions, the requested range is interpreted within that region and the RAL translates it to absolute positions using the partition declared through <a href=#ral_buffer_configure_regions_command class="">§RAL_Buffer_Configure_Regions_Command</a>.</p>
+<p>The RAL MUST evaluate the following conditions and complete the command immediately if one of them applies:</p>
+<ol>
+<li class="">If no partition has been declared for the <code>PacketBuffer</code> through <a href=#ral_buffer_configure_regions_command class="">§RAL_Buffer_Configure_Regions_Command</a>, the RAL MUST emit <code>RAL_Buffer_Ensure_Available_CommandEndEvent</code> with <code>command_status = ERROR_REGION_NOT_CONFIGURED</code>, regardless of <code>addressing_mode</code>.</li>
+<li class="">If <code>to &lt; from</code>, or if <code>to</code> exceeds the applicable bound, the RAL MUST emit <code>RAL_Buffer_Ensure_Available_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_BUFFER_RANGE</code>.</li>
+<li class="">If any octet in the requested range is in <code>BUFFER_OWNERSHIP_STATE_RAL</code>, as detailed in <a href=#ownership-of-buffer-data class="">§Ownership of Buffer Data</a>, the RAL MUST emit <code>RAL_Buffer_Ensure_Available_CommandEndEvent</code> with <code>command_status = ERROR_DATA_NOT_READY</code>. The exceptions are ranges whose readiness has been signalled early through the <code>RAL_Rx_Data_Available_CommandEvent</code> solicited by <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_schedule_command>§RAL_Rx_Schedule_Command</a>.
+<br/><br/> <em>Note.</em> The RAL carries no authentication guarantee for octets returned before the ownership is transferred back to the caller. The caller is responsible for treating such content as untrusted.</li>
+</ol>
+<p>Otherwise, the RAL MUST make the range available as specified in the following paragraphs and then emit <code>RAL_Buffer_Ensure_Available_CommandEndEvent</code> with <code>command_status = SUCCESS</code>.</p>
+<p>For <code>addressing_mode = BUFFER_REGION_ENCRYPTED</code>, the RAL provides the recovered plain representation of the data, as detailed in <a class="" href=/docs/spec-rail/ral-execution-service#ral_rx_schedule_command>§RAL_Rx_Schedule_Command</a>.</p>
+<p>For a <code>TightlyCoupledPacketBuffer</code>, upon successful completion, the content of the specified range in <code>buffer_data</code> MUST be identical to that of the corresponding range in the underlying radio buffer. The RAL MUST fetch every octet in the given range that has not already been fetched from the underlying radio buffer. The RAL SHOULD NOT fetch any octet more than once. The RAL MAY fetch octets outside the given range (e.g. in advance) if this improves overall performance.</p>
+<!-- -->
+<p>For a <code>GeneralPurposePacketBuffer</code>, this command does effectively nothing, since the data is already available in RAM.</p>
+<p>If the command fails for a reason not specified in this section, the RAL MUST immediately emit <code>RAL_Buffer_Ensure_Available_CommandEndEvent</code> with a RAL-specific <code>command_status</code> other than <code>SUCCESS</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_mark_touched_command><code>RAL_Buffer_Mark_Touched_Command</code><a href=#ral_buffer_mark_touched_command class=hash-link aria-label="Direct link to ral_buffer_mark_touched_command" title="Direct link to ral_buffer_mark_touched_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Informs the RAL that the specified octet range within the given <code>PacketBuffer</code>'s <code>buffer_data</code> has been modified.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>packet_buffer</code><td><a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§PacketBuffer</a><td>-<td>The referenced <code>PacketBuffer</code> instance.<tr><td><code>addressing_mode</code><td>Enumeration<td><code>ABSOLUTE</code>, <code>BUFFER_REGION_UNSECURED</code>, <code>BUFFER_REGION_AUTHENTICATED</code>, <code>BUFFER_REGION_ENCRYPTED</code><td>Selects how <code>from</code> and <code>to</code> are interpreted. <code>ABSOLUTE</code> addresses the <code>psdu</code> directly; the three region values address the named region of the configured partition.<tr><td><code>from</code><td>Unsigned Integer<td><code>[0, S]</code>, where <code>S</code> is <code>psdu_length - F</code> if <code>addressing_mode = ABSOLUTE</code>, otherwise the configured size of the named region<td>Start offset (inclusive) of the modified octet range.<tr><td><code>to</code><td>Unsigned Integer<td><code>[0, S]</code>, where <code>S</code> is as for <code>from</code><td>End offset (exclusive) of the modified octet range.</table>
+<p><strong>Description:</strong></p>
+<p>This command informs the RAL that the caller has modified the octet range <code>[from, to)</code> of the <code>PacketBuffer</code>'s <code>buffer_data</code>.</p>
+<p>Where <code>addressing_mode</code> names one of the three regions, the requested range is interpreted within that region and the RAL translates it to absolute positions using the partition declared through <a href=#ral_buffer_configure_regions_command class="">§RAL_Buffer_Configure_Regions_Command</a>.</p>
+<p>The RAL MUST evaluate the following conditions and complete the command immediately if one of them applies:</p>
+<ol>
+<li class="">If no partition has been declared for the <code>PacketBuffer</code> through <a href=#ral_buffer_configure_regions_command class="">§RAL_Buffer_Configure_Regions_Command</a>, the RAL MUST emit <code>RAL_Buffer_Mark_Touched_CommandEndEvent</code> with <code>command_status = ERROR_REGION_NOT_CONFIGURED</code>, regardless of <code>addressing_mode</code>.</li>
+<li class="">If <code>to &lt; from</code>, or if from or to lies outside its valid range, the RAL MUST emit <code>RAL_Buffer_Mark_Touched_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_BUFFER_RANGE</code>.</li>
+<li class="">If any octet in the range is in <code>BUFFER_OWNERSHIP_STATE_RAL</code>, as detailed in <a href=#ownership-of-buffer-data class="">§Ownership of Buffer Data</a>, the RAL MUST emit <code>RAL_Buffer_Mark_Touched_CommandEndEvent</code> with <code>command_status = ERROR_DATA_NOT_READY</code>.</li>
+</ol>
+<p>Otherwise, the RAL MUST record the range as touched and emit <code>RAL_Buffer_Mark_Touched_CommandEndEvent</code> with <code>command_status = SUCCESS</code>.</p>
+<p>For a <code>TightlyCoupledPacketBuffer</code>, the RAL MAY use the information obtained through this command to transfer the octet range <code>[from, to)</code> from <code>buffer_data</code> to the corresponding location in the underlying radio buffer, either immediately or by the time <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a> completes successfully.</p>
+<!-- -->
+<p>For a <code>GeneralPurposePacketBuffer</code>, this command does effectively nothing, since the RAL reads modifications directly from <code>buffer_data</code> and no write-back to a radio buffer is required.</p>
+<p><em>Note.</em> This command can be called multiple times for the same range or parts thereof. The RAL decides internally which data transfers it performs and when, e.g. whether it uses multiple immediate transfers, or marks modified ranges and transfers all data at once. Eventually, coherence between any range within the <code>PacketBuffer</code>'s <code>buffer_data</code> and its corresponding range in the associated radio buffer is only guaranteed once <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a> completes successfully for that range, i.e., the RAL MAY defer the data transfer up to this point.</p>
+<p><em>Note.</em> Modifying an octet of the <code>PacketBuffer</code>'s <code>buffer_data</code> leads to undefined behavior in either of the following cases:</p>
+<ol>
+<li class="">The modification is made while the octet is in <code>BUFFER_OWNERSHIP_STATE_RAL</code>, e.g. after it has been committed for transmission (implicitly or through <a class="" href=/docs/spec-rail/ral-execution-service#ral_tx_data_commit_command>§RAL_Tx_Data_Commit_Command</a>) and before the RAL has returned its ownership (see <a href=#ownership-of-buffer-data class="">§Ownership of Buffer Data</a>).</li>
+<li class="">The modification is not reported through a <code>RAL_Buffer_Mark_Touched_Command</code> covering the octet before the octet is committed.</li>
+</ol>
+<p>If the command fails for a reason not specified in this section, the RAL MUST immediately emit <code>RAL_Buffer_Mark_Touched_CommandEndEvent</code> with a RAL-specific <code>command_status</code> other than <code>SUCCESS</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_get_tcpb_available_capacity_command><code>RAL_Buffer_Get_TCPB_Available_Capacity_Command</code><a href=#ral_buffer_get_tcpb_available_capacity_command class=hash-link aria-label="Direct link to ral_buffer_get_tcpb_available_capacity_command" title="Direct link to ral_buffer_get_tcpb_available_capacity_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Returns the number of octets that can be currently allocated to a  <code>TightlyCoupledPacketBuffer</code>.</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong></p>
+<p>The RAL MUST immediately emit a <code>RAL_Buffer_Get_TCPB_Available_Capacity_CommandEndEvent</code> with <code>command_status = SUCCESS</code> and the <code>capacity</code> parameter carrying the requested value.</p>
+<p>If the RAL does not support <code>TightlyCoupledPacketBuffers</code>, the returned <code>capacity</code> MUST be 0.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=events>Events<a href=#events class=hash-link aria-label="Direct link to Events" title="Direct link to Events" translate=no>​</a></h2>
+<p><strong>Status convention.</strong> Status values follow the Execution Service: <code>SUCCESS</code> reports success and every failure is prefixed <code>ERROR_</code>, so that a caller can distinguish the two without enumerating the values.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_create_commandendevent><code>RAL_Buffer_Create_CommandEndEvent</code><a href=#ral_buffer_create_commandendevent class=hash-link aria-label="Direct link to ral_buffer_create_commandendevent" title="Direct link to ral_buffer_create_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Buffer_Create_Command</code>.</p>
+<p><strong>Summary:</strong> Reports the result of creating a <code>PacketBuffer</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_BUFFER_CREATE_TCPB_NO_SPACE_AVAILABLE</code>, or any RAL-specific error status.<td>Final execution status.<tr><td><code>packet_buffer</code><td><code>PacketBuffer</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§PacketBuffer</a><td>The created <code>PacketBuffer</code> instance, valid only if <code>command_status = SUCCESS</code>.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Buffer_Create_CommandEndEvent</code> upon conclusion of the <code>RAL_Buffer_Create_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_delete_commandendevent><code>RAL_Buffer_Delete_CommandEndEvent</code><a href=#ral_buffer_delete_commandendevent class=hash-link aria-label="Direct link to ral_buffer_delete_commandendevent" title="Direct link to ral_buffer_delete_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Buffer_Delete_Command</code>.</p>
+<p><strong>Summary:</strong> Reports the result of deleting a <code>PacketBuffer</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_BUFFER_NOT_READY</code>, or any RAL-specific error status.<td>Final execution status.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Buffer_Delete_CommandEndEvent</code> upon conclusion of the <code>RAL_Buffer_Delete_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_configure_regions_commandendevent><code>RAL_Buffer_Configure_Regions_CommandEndEvent</code><a href=#ral_buffer_configure_regions_commandendevent class=hash-link aria-label="Direct link to ral_buffer_configure_regions_commandendevent" title="Direct link to ral_buffer_configure_regions_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Buffer_Configure_Regions_Command</code>.</p>
+<p><strong>Summary:</strong> Reports whether the requested region partition was accepted.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_BUFFER_NOT_READY</code>, <code>ERROR_UNSUPPORTED_PARTITION</code>, <code>ERROR_INVALID_BUFFER_RANGE</code>, or any RAL-specific error status.<td>Outcome of the partition request.</table>
+<p><strong>Description:</strong> Emitted on conclusion of the <code>RAL_Buffer_Configure_Regions_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_ensure_available_commandendevent><code>RAL_Buffer_Ensure_Available_CommandEndEvent</code><a href=#ral_buffer_ensure_available_commandendevent class=hash-link aria-label="Direct link to ral_buffer_ensure_available_commandendevent" title="Direct link to ral_buffer_ensure_available_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Buffer_Ensure_Available_Command</code>.</p>
+<p><strong>Summary:</strong> Reports the result of the <code>RAL_Buffer_Ensure_Available_Command</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_REGION_NOT_CONFIGURED</code>, <code>ERROR_INVALID_BUFFER_RANGE</code>, <code>ERROR_DATA_NOT_READY</code>, or any RAL-specific error status.<td>Final execution status.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Buffer_Ensure_Available_CommandEndEvent</code> upon conclusion of <code>RAL_Buffer_Ensure_Available_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_mark_touched_commandendevent><code>RAL_Buffer_Mark_Touched_CommandEndEvent</code><a href=#ral_buffer_mark_touched_commandendevent class=hash-link aria-label="Direct link to ral_buffer_mark_touched_commandendevent" title="Direct link to ral_buffer_mark_touched_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Buffer_Mark_Touched_Command</code>.</p>
+<p><strong>Summary:</strong> Reports the result of the <code>RAL_Buffer_Mark_Touched_Command</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_REGION_NOT_CONFIGURED</code>, <code>ERROR_INVALID_BUFFER_RANGE</code>, <code>ERROR_DATA_NOT_READY</code>, or any RAL-specific error status.<td>Final execution status.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Buffer_Mark_Touched_CommandEndEvent</code> upon conclusion of <code>RAL_Buffer_Mark_Touched_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_buffer_get_tcpb_available_capacity_commandendevent><code>RAL_Buffer_Get_TCPB_Available_Capacity_CommandEndEvent</code><a href=#ral_buffer_get_tcpb_available_capacity_commandendevent class=hash-link aria-label="Direct link to ral_buffer_get_tcpb_available_capacity_commandendevent" title="Direct link to ral_buffer_get_tcpb_available_capacity_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Buffer_Get_TCPB_Available_Capacity_Command</code>.</p>
+<p><strong>Summary:</strong> Reports the result of the <code>RAL_Buffer_Get_TCPB_Available_Capacity_Command</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code><td>Final execution status.<tr><td><code>capacity</code><td>Unsigned Integer<td>-<td>The queried capacity that is currently available for allocating TCPBs.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Buffer_Get_TCPB_Available_Capacity_CommandEndEvent</code> upon conclusion of <code>RAL_Buffer_Get_TCPB_Available_Capacity_Command</code>.</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/spec-rail/introduction><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Introduction</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/spec-rail/ral-config-service><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>RAL Configuration Service</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#introduction class="table-of-contents__link toc-highlight">Introduction</a><ul><li><a href=#packet-buffer-specializations class="table-of-contents__link toc-highlight">Packet Buffer Specializations</a><li><a href=#psdu-partitioning-and-region-addressing class="table-of-contents__link toc-highlight">PSDU Partitioning and Region Addressing</a><li><a href=#coherence-and-the-point-of-commit class="table-of-contents__link toc-highlight">Coherence and the point of commit</a><li><a href=#ownership-of-buffer-data class="table-of-contents__link toc-highlight">Ownership of Buffer Data</a><li><a href=#related-documents class="table-of-contents__link toc-highlight">Related Documents</a></ul><li><a href=#commands class="table-of-contents__link toc-highlight">Commands</a><ul><li><a href=#ral_buffer_create_command class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Create_Command</code></a><li><a href=#ral_buffer_delete_command class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Delete_Command</code></a><li><a href=#ral_buffer_configure_regions_command class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Configure_Regions_Command</code></a><li><a href=#ral_buffer_ensure_available_command class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Ensure_Available_Command</code></a><li><a href=#ral_buffer_mark_touched_command class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Mark_Touched_Command</code></a><li><a href=#ral_buffer_get_tcpb_available_capacity_command class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Get_TCPB_Available_Capacity_Command</code></a></ul><li><a href=#events class="table-of-contents__link toc-highlight">Events</a><ul><li><a href=#ral_buffer_create_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Create_CommandEndEvent</code></a><li><a href=#ral_buffer_delete_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Delete_CommandEndEvent</code></a><li><a href=#ral_buffer_configure_regions_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Configure_Regions_CommandEndEvent</code></a><li><a href=#ral_buffer_ensure_available_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Ensure_Available_CommandEndEvent</code></a><li><a href=#ral_buffer_mark_touched_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Mark_Touched_CommandEndEvent</code></a><li><a href=#ral_buffer_get_tcpb_available_capacity_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Buffer_Get_TCPB_Available_Capacity_CommandEndEvent</code></a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Specification</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs/spec-core/introduction>Core Services</a><li class=footer__item><a class=footer__link-item href=/docs/spec-rail/introduction>RAL Services</a><li class=footer__item><a class=footer__link-item href=/docs/glossary>Glossary</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>OpenSTX</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class=footer__link-item>About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class=footer__link-item>Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class=footer__link-item>Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class=footer__link-item>Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org target=_blank rel="noopener noreferrer" class=footer__link-item>openstxfoundation.org<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/openstx/public-specification target=_blank rel="noopener noreferrer" class=footer__link-item>public-specification (GitHub)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class=footer__link-item>Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>OpenSTX is hosted at the Linux Foundation. Copyright © 2026 The Linux Foundation. This draft specification is not an approved release.</div></div></div></footer></div></body>

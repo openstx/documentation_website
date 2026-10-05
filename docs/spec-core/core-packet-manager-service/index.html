@@ -1,0 +1,152 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-spec-core/core-packet-manager-service" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Core Packet Manager Service | OpenSTX Specification</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true name=twitter:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true property=og:url content=https://docs.openstxfoundation.org/docs/spec-core/core-packet-manager-service /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Core Packet Manager Service | OpenSTX Specification"/><meta data-rh=true name=description content=Introduction /><meta data-rh=true property=og:description content=Introduction /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://docs.openstxfoundation.org/docs/spec-core/core-packet-manager-service /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-core/core-packet-manager-service hreflang=en /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-core/core-packet-manager-service hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/category/core-services","name":"Core Services","position":1},{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/spec-core/core-packet-manager-service","name":"Core Packet Manager Service","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.55f33b09.css /><script src=/assets/js/runtime~main.f4cd4d72.js defer></script><script src=/assets/js/main.b3cd52e2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-d58")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/openstx-logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">OpenSTX</b></a><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/category/core-services>Specification</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/core-services><span class=categoryLinkLabel_W154>Core Services</span></a><button aria-label="Collapse sidebar category 'Core Services'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-configuration-service><span class=linkLabel_WmDU>Core Configuration Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-execution-service><span class=linkLabel_WmDU>Core Execution Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-overview><span class=linkLabel_WmDU>Core Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/spec-core/core-packet-manager-service><span class=linkLabel_WmDU>Core Packet Manager Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-synchronization-service><span class=linkLabel_WmDU>Core Synchronization Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/introduction><span class=linkLabel_WmDU>Introduction</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/general-description><span class=categoryLinkLabel_W154>General Description</span></a><button aria-label="Expand sidebar category 'General Description'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/ral-services><span class=categoryLinkLabel_W154>RAL Services</span></a><button aria-label="Expand sidebar category 'RAL Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/security><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/glossary><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/core-services><span>Core Services</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Core Packet Manager Service</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class=admonitionHeading_Gvgb><span class=admonitionIcon_Rf37><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>Draft specification — subject to change.</div><div class=admonitionContent_BuS1>This is not an approved release.</div></div><div class="theme-doc-markdown markdown"><header><h1>Core Packet Manager Service</h1></header>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=introduction>Introduction<a href=#introduction class=hash-link aria-label="Direct link to Introduction" title="Direct link to Introduction" translate=no>​</a></h2>
+<p>The Packet Manager manages the lifecycle of a <a class="" href=/docs/spec-core/core-overview#the-corepacket-object>§CorePacket</a>. Each CorePacket is associated with a RAL <code>PacketBuffer</code>. The upper layer exchanges frame data with Core exclusively through CorePackets, and never touches a <code>PacketBuffer</code> directly.</p>
+<p>The upper layer reads and writes the <code>data</code> and <code>data_len</code> fields of a CorePacket directly. Buffer coherence toward the RAL is handled by Core: when a CorePacket is committed for transmission, Core reports the full frame range through the <a class="" href=/docs/spec-rail/ral-buffer-manager-service>RAL Buffer Manager</a>. The upper layer never issues RAL buffer commands.</p>
+<!-- -->
+<p>A CorePacket is <strong>committed</strong> when a <code>CORE_Schedule_Tx_Command</code> associated to it is accepted. A committed CorePacket is immutable: its contents can no longer be written. The commit is released when the lifecycle of the associated TX command closes, after which the CorePacket may be modified or deleted. A CorePacket bound to an RX command whose lifecycle has not closed, or associated a TX command whose lifecycle has not closed, is <strong>in use</strong>.</p>
+<p>The normative behavior is defined in sections <a href=#commands class="">Commands</a> and <a href=#events class="">Events</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=related-documents>Related Documents<a href=#related-documents class=hash-link aria-label="Direct link to Related Documents" title="Direct link to Related Documents" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Document<th>Description<tbody><tr><td><a class="" href=/docs/spec-core/introduction>Introduction</a><td>Introduction to the Core Services<tr><td><a class="" href=/docs/spec-core/core-overview>Core Overview</a><td>Defines the <a class="" href=/docs/spec-core/core-overview#the-corepacket-object>CorePacket</a> abstraction and its parameters<tr><td><a class="" href=/docs/spec-rail/ral-buffer-manager-service>RAL Buffer Manager</a><td>Provides the <code>PacketBuffer</code> associated with each CorePacket<tr><td><a class="" href=/docs/spec-rail/ral-overview>RAL Overview</a><td>Defines <a class="" href=/docs/spec-rail/ral-overview#packetbuffer><code>PacketBuffer</code></a></table>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=commands>Commands<a href=#commands class=hash-link aria-label="Direct link to Commands" title="Direct link to Commands" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_packet_create_command><code>CORE_Packet_Create_Command</code><a href=#core_packet_create_command class=hash-link aria-label="Direct link to core_packet_create_command" title="Direct link to core_packet_create_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Creates a CorePacket and its associated <code>PacketBuffer</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>max_data_len</code><td>Unsigned Integer<td>Greater than 0, and at most <code>PHY_MAX_PSDU_LENGTH - L - M - F</code> (see <a class="" href=/docs/spec-rail/ral-overview#psdulength>§PSDULength</a>), where <code>L</code> is the size of the largest Core header the frame format allows, and <code>M</code> is <code>coreMicSize</code> on a RAL that has a cipher and 0 otherwise<td>Maximum number of payload octets the CorePacket can hold.</table>
+<p><strong>Description:</strong></p>
+<p><code>CORE_Packet_Create_Command</code> requests Core to create a <code>CorePacket</code>. Core MUST allocate a <code>PacketBuffer</code> through <code>RAL_Buffer_Create_Command</code> and associate it with the CorePacket. Core MUST provide a <code>buffer_data</code> of at least <code>L + max_data_len + F + bufferSpaceMargin</code> octets, and selects the <code>buffer_type</code>. The created CorePacket starts with <code>data_len = 0</code>.</p>
+<p>Core MUST emit exactly one <code>CORE_Packet_Create_CommandEndEvent</code> for each <code>CORE_Packet_Create_Command</code> processed.</p>
+<p>If <code>max_data_len</code> is outside its valid range, Core MUST emit <code>CORE_Packet_Create_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_VALUE</code>, closing the command lifecycle.</p>
+<p>Core MUST emit <code>CORE_Packet_Create_CommandEndEvent</code> with <code>command_status = ERROR_BUFFER_ALLOC_FAILED</code>, closing the command lifecycle, if either of the following applies:</p>
+<ol>
+<li class="">Core cannot allocate a memory region of at least <code>L + max_data_len + F + bufferSpaceMargin</code> octets for <code>buffer_data</code>.</li>
+<li class=""><code>RAL_Buffer_Create_CommandEndEvent</code> reports a <code>command_status</code> other than <code>SUCCESS</code>.</li>
+</ol>
+<p>If the command succeeds, Core MUST emit <code>CORE_Packet_Create_CommandEndEvent</code> with <code>command_status = SUCCESS</code> and the created CorePacket.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_packet_delete_command><code>CORE_Packet_Delete_Command</code><a href=#core_packet_delete_command class=hash-link aria-label="Direct link to core_packet_delete_command" title="Direct link to core_packet_delete_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Deletes a CorePacket and releases its associated <code>PacketBuffer</code>.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>core_packet</code><td><a class="" href=/docs/spec-core/core-overview#the-corepacket-object><code>CorePacket</code></a><td>—<td>The CorePacket to delete.</table>
+<p><strong>Description:</strong></p>
+<p><code>CORE_Packet_Delete_Command</code> requests Core to delete a CorePacket and release its associated <code>PacketBuffer</code> through the RAL Buffer Manager.</p>
+<p>Core MUST emit exactly one <code>CORE_Packet_Delete_CommandEndEvent</code> for each <code>CORE_Packet_Delete_Command</code> processed.</p>
+<p>If <code>core_packet</code> does not identify a valid CorePacket, Core MUST emit <code>CORE_Packet_Delete_CommandEndEvent</code> with <code>command_status = ERROR_PACKET_NOT_FOUND</code>, closing the command lifecycle.</p>
+<p>If the CorePacket is in use, Core MUST emit <code>CORE_Packet_Delete_CommandEndEvent</code> with <code>command_status = ERROR_PACKET_IN_USE</code>, closing the command lifecycle.</p>
+<p>If the command succeeds, Core MUST release the associated <code>PacketBuffer</code> and emit <code>CORE_Packet_Delete_CommandEndEvent</code> with <code>command_status = SUCCESS</code>. After deletion, the octets <code>CorePacket.data</code> are no longer guaranteed to be valid.</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=events>Events<a href=#events class=hash-link aria-label="Direct link to Events" title="Direct link to Events" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_packet_create_commandendevent><code>CORE_Packet_Create_CommandEndEvent</code><a href=#core_packet_create_commandendevent class=hash-link aria-label="Direct link to core_packet_create_commandendevent" title="Direct link to core_packet_create_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Packet_Create_Command</code></p>
+<p><strong>Summary:</strong> Reports the result of creating a CorePacket.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_INVALID_VALUE</code>, <code>ERROR_BUFFER_ALLOC_FAILED</code><td>Outcome of the create request.<tr><td><code>core_packet</code><td><a class="" href=/docs/spec-core/core-overview#the-corepacket-object><code>CorePacket</code></a><td>Present only when <code>command_status = SUCCESS</code>.<td>The created CorePacket.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Packet_Create_CommandEndEvent</code> upon conclusion of <code>CORE_Packet_Create_Command</code>. This event closes the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_packet_delete_commandendevent><code>CORE_Packet_Delete_CommandEndEvent</code><a href=#core_packet_delete_commandendevent class=hash-link aria-label="Direct link to core_packet_delete_commandendevent" title="Direct link to core_packet_delete_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Packet_Delete_Command</code></p>
+<p><strong>Summary:</strong> Reports the result of a CorePacket delete request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_PACKET_IN_USE</code>, <code>ERROR_PACKET_NOT_FOUND</code><td>Outcome of the delete request.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Packet_Delete_CommandEndEvent</code> upon conclusion of <code>CORE_Packet_Delete_Command</code>. This event closes the command lifecycle.</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/spec-core/core-overview><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Core Overview</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/spec-core/core-synchronization-service><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Core Synchronization Service</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#introduction class="table-of-contents__link toc-highlight">Introduction</a><ul><li><a href=#related-documents class="table-of-contents__link toc-highlight">Related Documents</a></ul><li><a href=#commands class="table-of-contents__link toc-highlight">Commands</a><ul><li><a href=#core_packet_create_command class="table-of-contents__link toc-highlight"><code>CORE_Packet_Create_Command</code></a><li><a href=#core_packet_delete_command class="table-of-contents__link toc-highlight"><code>CORE_Packet_Delete_Command</code></a></ul><li><a href=#events class="table-of-contents__link toc-highlight">Events</a><ul><li><a href=#core_packet_create_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Packet_Create_CommandEndEvent</code></a><li><a href=#core_packet_delete_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Packet_Delete_CommandEndEvent</code></a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Specification</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs/spec-core/introduction>Core Services</a><li class=footer__item><a class=footer__link-item href=/docs/spec-rail/introduction>RAL Services</a><li class=footer__item><a class=footer__link-item href=/docs/glossary>Glossary</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>OpenSTX</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class=footer__link-item>About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class=footer__link-item>Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class=footer__link-item>Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class=footer__link-item>Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org target=_blank rel="noopener noreferrer" class=footer__link-item>openstxfoundation.org<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/openstx/public-specification target=_blank rel="noopener noreferrer" class=footer__link-item>public-specification (GitHub)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class=footer__link-item>Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>OpenSTX is hosted at the Linux Foundation. Copyright © 2026 The Linux Foundation. This draft specification is not an approved release.</div></div></div></footer></div></body>

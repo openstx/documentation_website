@@ -1,0 +1,658 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-spec-rail/ral-execution-service" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>RAL Execution Service | OpenSTX Specification</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true name=twitter:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true property=og:url content=https://docs.openstxfoundation.org/docs/spec-rail/ral-execution-service /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="RAL Execution Service | OpenSTX Specification"/><meta data-rh=true name=description content=Introduction /><meta data-rh=true property=og:description content=Introduction /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://docs.openstxfoundation.org/docs/spec-rail/ral-execution-service /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-execution-service hreflang=en /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-execution-service hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/category/ral-services","name":"RAL Services","position":1},{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/spec-rail/ral-execution-service","name":"RAL Execution Service","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.55f33b09.css /><script src=/assets/js/runtime~main.f4cd4d72.js defer></script><script src=/assets/js/main.b3cd52e2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-d58")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/openstx-logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">OpenSTX</b></a><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/category/core-services>Specification</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/core-services><span class=categoryLinkLabel_W154>Core Services</span></a><button aria-label="Expand sidebar category 'Core Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/general-description><span class=categoryLinkLabel_W154>General Description</span></a><button aria-label="Expand sidebar category 'General Description'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/ral-services><span class=categoryLinkLabel_W154>RAL Services</span></a><button aria-label="Collapse sidebar category 'RAL Services'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/introduction><span class=linkLabel_WmDU>Introduction</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-buffer-manager-service><span class=linkLabel_WmDU>RAL Buffer Manager Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-config-service><span class=linkLabel_WmDU>RAL Configuration Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/spec-rail/ral-execution-service><span class=linkLabel_WmDU>RAL Execution Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-overview><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-security-service><span class=linkLabel_WmDU>RAL Security Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-time-service><span class=linkLabel_WmDU>RAL Time Service</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/security><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/glossary><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/ral-services><span>RAL Services</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>RAL Execution Service</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class=admonitionHeading_Gvgb><span class=admonitionIcon_Rf37><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>Draft specification — subject to change.</div><div class=admonitionContent_BuS1>This is not an approved release.</div></div><div class="theme-doc-markdown markdown"><header><h1>RAL Execution Service</h1></header>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=introduction>Introduction<a href=#introduction class=hash-link aria-label="Direct link to Introduction" title="Direct link to Introduction" translate=no>​</a></h2>
+<p>The RAL Execution Service is responsible for scheduling radio operations within real-time constraints.</p>
+<p>The service has three notable characteristics:</p>
+<ol>
+<li class=""><strong>Asynchronous and sequential operation scheduling.</strong> The RAL acknowledges the scheduling of commands, only accepting one at a time, independently of operation completion. The final result is delivered afterwards via a dedicated event.</li>
+<li class=""><strong>Decoupled data transfer for transmissions.</strong> Data for transmission may be committed after an operation has already been scheduled. This allows the higher layer to continue data preparation while the operation is pending, reducing the total sequential time budget for the operation.</li>
+<li class=""><strong>Early receive indication.</strong> Upon scheduling a reception, the higher layer may request an event as soon as selected PSDU octets are available, enabling earlier reaction when specific information is accessible.</li>
+</ol>
+<p>The normative behavior is defined in sections <a href=#commands class="">Commands</a> and <a href=#events class="">Events</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=related-documents>Related Documents<a href=#related-documents class=hash-link aria-label="Direct link to Related Documents" title="Direct link to Related Documents" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Document<th>Description<tbody><tr><td><a class="" href=/docs/spec-rail/introduction>Introduction</a><td>Introduction to the RAL Services<tr><td><a class="" href=/docs/spec-rail/ral-buffer-manager-service>Buffer Manager</a><td>Outlines the <code>PacketBuffer</code> abstraction: its structure, lifecycle, specializations, and behavior aspects. The executor uses <code>PacketBuffers</code> to carry the PSDUs it transmits and receives.<tr><td><a class="" href=/docs/spec-rail/ral-security-service>RAL Security Service</a><td>Specifies the cipher that protects the PSDU of a protected operation, and the key it uses.</table>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=commands>Commands<a href=#commands class=hash-link aria-label="Direct link to Commands" title="Direct link to Commands" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_rx_schedule_command><code>RAL_Rx_Schedule_Command</code><a href=#ral_rx_schedule_command class=hash-link aria-label="Direct link to ral_rx_schedule_command" title="Direct link to ral_rx_schedule_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Schedules the reception of a single PPDU expected on air within a specified time range.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>packet</code><td><code>PacketBuffer</code>, as defined in <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a><td>—<td>Indicates a memory space into which the received PSDU is to be delivered.<tr><td><code>rx_min_at</code><td><code>RalInstant</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#ralinstant>§RalInstant</a><td>Earliest point in time, expressed in radio time, at which the PTA is expected on air.<tr><td><code>rx_max_at</code><td><code>RalInstant</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#ralinstant>§RalInstant</a><td>Latest point in time, expressed in radio time, at which the PTA is expected on air.<tr><td><code>frame_timeout</code><td><code>RalInstant</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#ralinstant>§RalInstant</a><td>Maximum allowed time interval within which the RAL is expected to complete PPDU reception, measured from the expected PTA reception time. If <code>frame_timeout</code> is 0, it MUST be ignored.<tr><td><code>scan</code><td>Boolean<td>—<td>If <code>TRUE</code>, indicates that the radio MUST listen indefinitely until a successful or failed reception, or until the command is cancelled.<tr><td><code>psdu_trigger_indexes</code><td>Set of Integers<td>Unique non-negative octet indexes, lower than <code>PHY_MAX_PSDU_LENGTH - F</code>.<td>Set of octet positions in the frame content upon delivery of which the RAL MUST emit <code>RAL_Rx_Data_Available_CommandEvent</code>.<tr><td><code>nonce</code><td>Octet String.<td>Exactly <a class="" href=/docs/spec-rail/ral-config-service#generic-configuration-attributes>§nonceSize</a> octets.<td>Indicates a memory space containing the nonce value used to authenticate and decrypt the <code>packet</code>'s secured regions.<tr><td><code>nonce_implicit_commit</code><td>Boolean<td>—<td>If <code>TRUE</code>, the nonce value is implicitly committed immediately. Otherwise, the nonce MUST be committed explicitly via <code>RAL_Nonce_Commit_Command</code>.</table>
+<!-- -->
+<p><strong>Description:</strong></p>
+<p><code>RAL_Rx_Schedule_Command</code> schedules an RX operation for the reception of a single PPDU. The command specifies a time range within which the PPDU's PTA is expected on air. If no PPDU is detected or received in time, the operation completes with a timeout status.</p>
+<p>The command MUST be rejected if any of the following applies:</p>
+<ol>
+<li class="">The RAL state is <code>PENDING</code> or <code>RUNNING</code>.</li>
+<li class="">The moment in time expressed by <code>rx_min_at</code> is in the past, or too close in the future for the radio to start listening at the requested time, accounting for its PHY-characteristic offset.</li>
+<li class="">No partition has been declared for the <code>packet</code> through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>.</li>
+<li class="">The <code>packet</code>'s <code>psdu_length</code> plus the current MIC length exceeds <code>PHY_MAX_PSDU_LENGTH</code>, counting <code>micSize</code> for a protected partition and zero otherwise.</li>
+</ol>
+<!-- -->
+<p>If the command is rejected, the RAL MUST emit <code>RAL_CommandStatusEvent</code> with <code>command_id = RAL_Rx_Schedule_Command</code> and <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If the command is accepted, the RAL MUST:</p>
+<ul>
+<li class="">transition to <code>PENDING</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>),</li>
+<li class="">set <code>RAL_Rx_Schedule_Command</code> as the <a class="" href=/docs/spec-rail/ral-overview#active-command>active command</a>,</li>
+<li class="">emit <code>RAL_CommandStatusEvent</code> with <code>command_id = RAL_Rx_Schedule_Command</code>, <code>command_status = ACCEPTED</code>, and</li>
+<li class="">make the radio enter listening state in time to correctly receive the PPDU according to the point in time expressed by <code>rx_min_at</code>.</li>
+</ul>
+<p>The RAL MUST make the radio enter listening state in advance w.r.t. the point in time expressed by <code>rx_min_at</code>, with a PHY-characteristic offset (to account for, e.g., ramp-up time and synchronization header duration). This offset SHOULD NOT be longer than the minimum time required to ensure the radio is ready to correctly receive the PPDU.</p>
+<p>When the radio begins to ramp-up for listening, the RAL MUST transition to <code>RUNNING</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>).</p>
+<p>If <code>scan = FALSE</code> and no incoming frame is detected within a given detection interval, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_DETECTION_TIMEOUT</code>, closing the command lifecycle. The detection interval combines a PHY-characteristic interval appropriate for reliable frame detection, increased by the time difference expressed by <code>rx_max_at - rx_min_at</code>.</p>
+<p>After successful frame detection, if PTA is not detected by the time expressed by <code>rx_max_at</code>, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_PTA_TIMEOUT</code>, closing the command lifecycle.</p>
+<!-- -->
+<!-- -->
+<p>After successful frame detection, if the entire PPDU is not received within the <code>frame_timeout</code> interval, measured from the moment in time represented by <code>rx_max_at</code>, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_FRAME_TIMEOUT</code>, closing the command lifecycle.</p>
+<p>If the radio detects the incoming frame does not comply with the configured rules described in !REF, the RAL SHOULD emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_FRAME_REJECTED</code>, closing the command lifecycle.</p>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<p>If the RAL identifies uncorrectable data errors in the received PSDU, the RAL SHOULD emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_FRAME_CORRUPTED</code>, closing the command lifecycle.</p>
+<p>If <code>BUFFER_REGION_AUTHENTICATED</code> or <code>BUFFER_REGION_ENCRYPTED</code> of the <code>packet</code> has a non-zero size (as declared via <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>):</p>
+<ol>
+<li class="">If no key is installed (see <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>), the command MUST be rejected at intake, as for the conditions listed above.</li>
+<li class="">If <code>nonce</code> is undefined, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_NONCE_REQUIRED</code>.</li>
+<li class="">The RAL MUST use the <code>nonce</code> to check and decrypt the protected octets with the cipher of the <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>, before it emits <code>RAL_Rx_Schedule_CommandEndEvent</code>.</li>
+<li class="">The RAL MUST NOT use a <code>nonce</code> value that is not yet committed (implicitly or via <code>RAL_Nonce_Commit_Command</code>). The RAL MUST await the commit if necessary, keeping the command's lifecycle open. The caller SHOULD commit the <code>nonce</code> as soon as possible.</li>
+<li class="">Until the <code>nonce</code> is committed, the memory referenced by nonce is owned by the caller and the RAL MUST NOT read it. From the commit until the emission of the <code>CommandEndEvent</code> of the scheduling command, the caller MUST NOT modify it.</li>
+<li class="">If the authentication check fails, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_NOT_AUTHENTICATED</code>, closing the command lifecycle.</li>
+<li class="">If the cipher fails, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_DECRYPTION_FAILED</code>, closing the command lifecycle.</li>
+<li class="">If the complete received on-air PSDU has fewer octets than <code>BUFFER_REGION_UNSECURED</code>, <code>BUFFER_REGION_AUTHENTICATED</code>, the MIC and the FCS take together, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_FRAME_REJECTED</code>, closing the command lifecycle, without waiting for the <code>nonce</code> to be committed.</li>
+<li class="">If the reception does not end with <code>command_status = SUCCESS</code>, the RAL MUST NOT leave in <code>buffer_data</code> any octet it decrypted, and it MUST NOT let a received octet it holds elsewhere, such as in a radio buffer, reach the caller or the air afterwards: such octets MUST read, and be transmitted, as zero until the caller writes them. The RAL MAY defer erasing that memory.</li>
+</ol>
+<p>If the RAL would emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with a <code>command_status</code> other than <code>SUCCESS</code>, it MUST abort the reception operation before emitting the event.</p>
+<p>As described in <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ownership-of-buffer-data>§Ownership of Buffer Data</a>, when <code>RAL_Rx_Schedule_Command</code> is accepted, the <code>packet</code>'s data transitions to <code>BUFFER_OWNERSHIP_STATE_RAL</code>. While the data is in that state the caller MUST NOT write them, and any value it reads from them is not stable. The data is transitioned back to <code>BUFFER_OWNERSHIP_STATE_CALLER</code> when the execution of the accepted <code>RAL_Rx_Schedule_Command</code> ends with the emission <code>RAL_Rx_Schedule_CommandEndEvent</code>, regardless of the <code>command_status</code>. If the <code>command_status</code> is <code>SUCCESS</code>, the RAL MUST ensure that the three declared regions of the <code>packet</code>, are ready to be read by the caller in their plain, contiguous representation through the <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_ensure_available_command>§RAL_Buffer_Ensure_Available_Command</a>. The frame content is undefined if <code>command_status</code> is other than <code>SUCCESS</code>.</p>
+<p>Let <code>W</code> be the received PSDU length, including the MIC. If <code>W &lt; M + F</code>, or if <code>W - M</code> is longer than the declared <code>psdu_length</code>, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_FRAME_REJECTED</code>, closing the command lifecycle. Otherwise, on <code>SUCCESS</code>, the RAL MUST set the <code>packet</code>'s <code>psdu_length</code> to <code>W - M</code>. The last non-empty region then ends at <code>psdu_length - F</code> (see <a class="" href=/docs/spec-rail/ral-overview#psdulength>§PSDULength</a>).</p>
+<p><em>Note.</em> If RAL-level encryption is in use, the requirement of providing a "plain representation" of the PSDU implies that encrypted regions of the PSDU have to be decrypted. If a PHY-specific ordering of PSDU octets within the PPDU was applied, the "contiguous representation" implies that the RAL has to reassemble the original, intended PSDU into a contiguous region.</p>
+<p>While the PSDU is being received, the RAL MUST emit a <code>RAL_Rx_Data_Available_CommandEvent</code> for each octet position listed in <code>psdu_trigger_indexes</code> as early as possible. With the emission of this event, the PSDU range <code>[0, psdu_index]</code> becomes available to the caller, and the RAL MUST ensure that this range is ready to be read in its plain, contiguous representation through the <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_ensure_available_command>§RAL_Buffer_Ensure_Available_Command</a>. The range does not become owned by the caller, which therefore MUST NOT write it.</p>
+<p>If an immediate emission of the <code>RAL_Rx_Data_Available_CommandEvent</code> is not possible due to hardware limitations, the RAL MAY defer these events, but MUST NOT emit any of them later than <code>RAL_Rx_Schedule_CommandEndEvent</code>. If one or more events were, or would be, deferred until the emission time of an event with a higher index, the RAL MAY merge those events and only emit the higher-index event.</p>
+<p>The RAL provides no integrity or authenticity guarantee for octets returned to the caller before <code>RAL_Rx_Schedule_CommandEndEvent</code> has reported <code>command_status = SUCCESS</code>. Reading them is permitted, and the caller is responsible for handling the risk of acting on data that may prove corrupted or not authentic.</p>
+<p>If reception completes successfully, the RAL MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<p>If this active command is cancelled, the RAL MUST abort the scheduled or ongoing reception operation, and MUST emit <code>RAL_Rx_Schedule_CommandEndEvent</code> with <code>command_status = CANCELLED</code>, closing the command lifecycle.</p>
+<p>When the lifecycle of this command is closed, the RAL MUST transition to <code>IDLE</code> state.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_tx_schedule_command><code>RAL_Tx_Schedule_Command</code><a href=#ral_tx_schedule_command class=hash-link aria-label="Direct link to ral_tx_schedule_command" title="Direct link to ral_tx_schedule_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Schedules the transmission of a single PPDU at a specified point in time.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>packet</code><td><code>PacketBuffer</code>, as defined in <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a><td>—<td>Indicates a memory space containing the PSDU to be transmitted.<tr><td><code>tx_at</code><td><code>RalInstant</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#ralinstant>§RalInstant</a><td>Point in time at which the PTA of the trasmitted PPDU MUST appear on air.<tr><td><code>packet_implicit_commit</code><td>Boolean<td>—<td>If <code>TRUE</code>, the packet data is implicitly committed immediately. Otherwise, data MUST be committed explicitly via <code>RAL_Tx_Data_Commit_Command</code>.<tr><td><code>nonce</code><td>Octet string of size <code>nonceSize</code><td>—<td>Indicates a memory space containing the nonce value used to authenticate and encrypt the <code>packet</code>'s secured regions.<tr><td><code>nonce_implicit_commit</code><td>Boolean<td>—<td>If <code>TRUE</code>, the nonce value is implicitly committed immediately. Otherwise, the nonce MUST be committed explicitly via <code>RAL_Nonce_Commit_Command</code>.</table>
+<p><strong>Description:</strong></p>
+<p><code>RAL_Tx_Schedule_Command</code> schedules the transmission of a single PPDU at the specified point in time.</p>
+<p>The command MUST be rejected if any of the following applies:</p>
+<ol>
+<li class="">The RAL state is <code>PENDING</code> or <code>RUNNING</code>.</li>
+<li class="">The moment in time expressed by <code>tx_at</code> is in the past, or too close in the future for the radio to start transmitting at the requested time, accounting for its PHY-characteristic offset.</li>
+<li class="">No partition has been declared for the <code>packet</code> through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>.</li>
+<li class="">The <code>packet</code>'s <code>psdu_length</code> plus the current MIC length exceeds <code>PHY_MAX_PSDU_LENGTH</code>, counting <code>micSize</code> for a protected partition and zero otherwise.</li>
+</ol>
+<!-- -->
+<p>If the command is rejected, the RAL MUST emit <code>RAL_CommandStatusEvent</code> with <code>command_id = RAL_Tx_Schedule_Command</code>, <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If the command is accepted, the RAL MUST:</p>
+<ul>
+<li class="">transition to <code>PENDING</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>),</li>
+<li class="">set <code>RAL_Tx_Schedule_Command</code> as the <a class="" href=/docs/spec-rail/ral-overview#active-command>active command</a>,</li>
+<li class="">emit <code>RAL_CommandStatusEvent</code> with <code>command_id = RAL_Tx_Schedule_Command</code>, <code>command_status = ACCEPTED</code>, and</li>
+<li class="">transmit the PPDU, starting transmission in time to correctly transmit the PTA at the point in time expressed by <code>tx_at</code>.</li>
+</ul>
+<p>The RAL MUST ready the radio in advance w.r.t. the point in time expressed by <code>tx_at</code>, with a PHY-characteristic offset (to account for, e.g., ramp-up time and synchronization header duration). This offset SHOULD NOT be longer than the minimum time required to ensure the radio is ready to correctly transmit the PPDU.</p>
+<p>When the radio begins to ramp-up for the transmission, the RAL MUST transition to <code>RUNNING</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>).</p>
+<p>When the transmission completes successfully, the RAL MUST emit <code>RAL_Tx_Schedule_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<!-- --> 
+<!-- -->
+<!-- -->
+<p>The <code>packet</code>'s <code>psdu_length</code> MUST be set to the final PSDU length before <code>RAL_Tx_Schedule_Command</code> is issued, and MUST NOT change while the command is <code>PENDING</code> or <code>RUNNING</code>. Otherwise, the behaviour of the command is unspecified.</p>
+<!-- -->
+<p>The RAL MUST NOT transmit uncommitted frame-content octets. Each such octet has a commit deadline, which is the latest time at which the radio can still place it on air at its scheduled time, w.r.t. the PTA. If any octet is not committed by its commit deadline using the <a href=#ral_tx_data_commit_command class="">§RAL_Tx_Data_Commit_Command</a>, the RAL MUST abort the scheduled or ongoing transmission immediately and emit <code>RAL_Tx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_TX_DATA_LATE</code>, closing the command lifecycle. To maximize the time budget available for data preparation, the RAL SHOULD defer the evaluation of whether an octet is committed before its deadline as far as the underlying hardware platform allows.</p>
+<p><em>Note.</em> Restricted radios may require all octets to be committed before transmission begins. However, the RAL also supports more capable radios, which accept octets on the fly while preceding octets are still being transmitted.</p>
+<p>Prior to issuing the <code>RAL_Tx_Schedule_Command</code>, the caller declares the partition of the <code>packet</code> through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>. The RAL MUST ensure that committed data is authenticated and/or encrypted according to that partition before it is transmitted.</p>
+<p>If <code>BUFFER_REGION_AUTHENTICATED</code> or <code>BUFFER_REGION_ENCRYPTED</code> of the <code>packet</code> has a non-zero size (as declared via <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>):</p>
+<ol>
+<li class="">If no key is installed (see <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>), the command MUST be rejected at intake, as for the conditions listed above.</li>
+<li class="">If <code>nonce</code> is undefined, the RAL MUST emit <code>RAL_Tx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_NONCE_REQUIRED</code>.</li>
+<li class="">The RAL MUST use the <code>nonce</code> to encrypt and authenticate the protected octets with the cipher of the <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>.</li>
+<li class="">The RAL MUST NOT use a <code>nonce</code> value that is not yet committed (implicitly or via <code>RAL_Nonce_Commit_Command</code>).</li>
+</ol>
+<!-- -->
+<ol start=5>
+<li class="">The <code>nonce</code> commit deadline is the latest point in time at which the RAL can still start the cryptographic processing needed to place the first secured octet on air w.r.t the PTA. The RAL SHOULD defer the deadline evaluation as far as the hardware allows. If the <code>nonce</code> is not committed by its commit deadline, the RAL MUST abort the scheduled or ongoing transmission immediately and emit <code>RAL_Tx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_NONCE_LATE</code>, closing the command lifecycle.</li>
+<li class="">Until the <code>nonce</code> is committed, the memory referenced by nonce is owned by the caller and the RAL MUST NOT read it. From the commit until the emission of the <code>CommandEndEvent</code> of the scheduling command, the caller MUST NOT modify it.</li>
+<li class="">If the cipher fails, the RAL MUST NOT transmit any octet of the PSDU and MUST emit <code>RAL_Tx_Schedule_CommandEndEvent</code> with <code>command_status = ERROR_ENCRYPTION_FAILED</code>, closing the command lifecycle.</li>
+</ol>
+<p>As described in <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ownership-of-buffer-data>§Ownership of Buffer Data</a>, an octet range committed implicitly or through <a href=#ral_tx_data_commit_command class="">§RAL_Tx_Data_Commit_Command</a> transitions to <code>BUFFER_OWNERSHIP_STATE_RAL</code>. While a range is in that state, the RAL MAY modify or rearrange the corresponding octets of <code>buffer_data</code>. The caller MUST NOT write them, and any value it reads from them is undefined. The RAL MUST return all of <code>buffer_data</code> to <code>BUFFER_OWNERSHIP_STATE_CALLER</code> before emitting <code>RAL_Tx_Schedule_CommandEndEvent</code>, regardless of the reported <code>command_status</code>. To this end, the RAL MUST restore every frame-content octet it modified within the three regions of the <code>packet</code> to the value the caller had provided at the point of commit. The RAL SHOULD return ownership as soon as the octets are no longer required for the transmission, which MUST be signalled by an earlier <code>RAL_Tx_Buffer_Released_CommandEvent</code>.</p>
+<p>The RAL MUST support the reuse of frame-content data from a previously received <code>packet</code>. In particular, the content of untouched ranges within the three regions (i.e. ranges not marked as touched via <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_mark_touched_command>§RAL_Buffer_Mark_Touched_Command</a>) MUST be adopted as they are.</p>
+<p><em>Implementation Note.</em> In case of a <code>GeneralPurposePacketBuffer</code> (GPPB), the <code>buffer_data</code> area is the buffer, so no special actions are required to enable the reuse of received data. In case of a <code>TightlyCoupledPacketBuffer</code> (TCPB), touched data MUST be transferred from <code>buffer_data</code> (the "shadow buffer") to the associated radio buffer before transmission. In addition, if a TCPB implementation hides separate radio buffers for receive and transmit behind a TCPB, then the implementation MUST ensure that all frame-content octets in the three regions not marked as touched by <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_mark_touched_command>§RAL_Buffer_Mark_Touched_Command</a> are copied from the internal receive buffer to the internal transmit buffer before transmission. Upon successful completion of each <a href=#ral_tx_data_commit_command class="">§RAL_Tx_Data_Commit_Command</a>, the transfers described above MUST be complete for all octets committed so far.</p>
+<p>If this active command is cancelled, the RAL MUST abort the scheduled or ongoing transmission operation, and MUST emit <code>RAL_Tx_Schedule_CommandEndEvent</code> with <code>command_status = CANCELLED</code>, closing the command lifecycle.</p>
+<p>When the lifecycle of this command is closed, the RAL MUST transition to <code>IDLE</code> state.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_tx_data_commit_command><code>RAL_Tx_Data_Commit_Command</code><a href=#ral_tx_data_commit_command class=hash-link aria-label="Direct link to ral_tx_data_commit_command" title="Direct link to ral_tx_data_commit_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Commits a portion of the PSDU for a scheduled transmission up to a given position, so that the caller can continue preparing data while the transmission is pending or running.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>addressing_mode</code><td>Enumeration<td><code>ABSOLUTE</code>, <code>BUFFER_REGION_UNSECURED</code>, <code>BUFFER_REGION_AUTHENTICATED</code>, <code>BUFFER_REGION_ENCRYPTED</code><td>Selects how <code>until</code> is interpreted. <code>ABSOLUTE</code> addresses the psdu directly; the three region values address the named region of the configured <code>psdu</code> partition.<tr><td><code>until</code><td>Unsigned Integer<td><code>[0, psdu_length - F]</code> if <code>addressing_mode = ABSOLUTE</code>; otherwise <code>[0, S]</code>, where <code>S</code> is the configured size of the named region.<td>End offset (exclusive) of the range to be committed.</table>
+<p><strong>Description:</strong></p>
+<p>The command refers to the <code>PacketBuffer</code> passed as <code>packet</code> to the active <code>RAL_Tx_Schedule_Command</code>.</p>
+<p>For an active transmission, the RAL maintains a <em>commit position</em> <code>c</code>, expressed as an offset into the <code>PacketBuffer</code>'s <code>psdu</code>. Let <code>C = psdu_length - F</code>, the end of the three regions. Every frame-content octet before <code>c</code> is committed, and no frame-content octet at or after <code>c</code> is. When <code>RAL_Tx_Schedule_Command</code> is accepted, <code>c</code> is set to 0, or to <code>C</code> if <code>packet_implicit_commit = TRUE</code>. The commit position never decreases. Committed octets therefore always form a contiguous prefix of the frame content, and the regions of a partitioned buffer are committed in the order <code>BUFFER_REGION_UNSECURED</code>, <code>BUFFER_REGION_AUTHENTICATED</code>, <code>BUFFER_REGION_ENCRYPTED</code>, incrementally within each region.</p>
+<p>The command specifies an absolute <em>target position</em> <code>t</code>:</p>
+<ul>
+<li class="">If <code>addressing_mode = ABSOLUTE</code>, then <code>t = until</code>.</li>
+<li class="">Otherwise, <code>t</code> is <code>until</code> plus the configured sizes of all regions preceding the named region. The RAL performs this translation using the partition declared through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>.</li>
+</ul>
+<p>The RAL MUST evaluate the following conditions. If any of them applies, the commit position MUST remain unchanged.</p>
+<ol>
+<li class="">If the RAL state is not <code>PENDING</code> or <code>RUNNING</code>, or if the active command is not <code>RAL_Tx_Schedule_Command</code>, the RAL MUST emit <code>RAL_Tx_Data_Commit_CommandEndEvent</code> with <code>command_status = ERROR_NOT_ALLOWED</code>.</li>
+<li class="">If <code>until</code> lies outside its valid range, the RAL MUST emit <code>RAL_Tx_Data_Commit_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_BUFFER_RANGE</code>.</li>
+<li class="">If <code>t &lt; c</code>, the RAL MUST emit <code>RAL_Tx_Data_Commit_CommandEndEvent</code> with <code>command_status = ERROR_COMMIT_OUT_OF_ORDER</code>.</li>
+</ol>
+<p>Otherwise, the RAL MUST mark all octets in <code>[c, t)</code> as committed, set <code>c = t</code>, and emit <code>RAL_Tx_Data_Commit_CommandEndEvent</code> with <code>command_status = SUCCESS</code>. If <code>t = c</code>, the command has no effect and completes with <code>command_status = SUCCESS</code>.</p>
+<!-- -->
+<p><em>Note.</em> A target position within a selected region implies that all not yet committed octets of the preceding regions are committed as well. In particular, <code>addressing_mode = BUFFER_REGION_ENCRYPTED</code> with <code>until</code> equal to the size of that region commits all frame-content octets.</p>
+<p>As described in <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ownership-of-buffer-data>§Ownership of Buffer Data</a>, committed octets transition to <code>BUFFER_OWNERSHIP_STATE_RAL</code>. The caller MUST NOT modify them until the RAL returns their ownership by emitting <code>RAL_Tx_Buffer_Released_CommandEvent</code> or <code>RAL_Tx_Schedule_CommandEndEvent</code>.</p>
+<p>If the <code>packet</code> is a <code>TightlyCoupledPacketBuffer</code> (TCPB), the RAL MUST ensure, upon successful completion of this command, that the associated radio buffer holds the committed content of every octet before <code>c</code>. This is the value in <code>psdu</code> for octets marked as touched via <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_mark_touched_command>§RAL_Buffer_Mark_Touched_Command</a>, and the retained value for all other octets.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_nonce_commit_command><code>RAL_Nonce_Commit_Command</code><a href=#ral_nonce_commit_command class=hash-link aria-label="Direct link to ral_nonce_commit_command" title="Direct link to ral_nonce_commit_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Declares the nonce referenced by the active scheduling command as committed.</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong></p>
+<p>The lifecycle of the nonce value is coupled to the lifecycle of the associated radio operation. Once committed, the nonce MUST remain in that state until the corresponding <code>RAL_Rx_Schedule_Command</code> or <code>RAL_Tx_Schedule_Command</code> concludes with a <code>CommandEndEvent</code>.</p>
+<p>The RAL MUST NOT retain a nonce value in committed state across commands, even if the caller reuses the same memory space for the nonce.</p>
+<p>If the nonce is already committed, the RAL MUST immediately emit a <code>RAL_Nonce_Commit_CommandEndEvent</code> with <code>command_status = ERROR_NONCE_ALREADY_COMMITTED</code>.</p>
+<!-- -->
+<p>If neither <code>RAL_Tx_Schedule_Command</code> nor <code>RAL_Rx_Schedule_Command</code> is currently active, the RAL MUST immediately emit a <code>RAL_Nonce_Commit_CommandEndEvent</code> with <code>command_status = ERROR_NOT_ALLOWED</code>.</p>
+<p>If the command fails for any other reason, the RAL MUST immediately emit a <code>RAL_Nonce_Commit_CommandEndEvent</code> whose <code>command_status</code> is not <code>SUCCESS</code>.</p>
+<p>If the command is successful, the RAL MUST acknowledge the nonce as committed, emitting <code>RAL_Nonce_Commit_CommandEndEvent</code> with <code>command_status = SUCCESS</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_preschedule_command><code>RAL_Preschedule_Command</code><a href=#ral_preschedule_command class=hash-link aria-label="Direct link to ral_preschedule_command" title="Direct link to ral_preschedule_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Informs the RAL that a radio operation will be scheduled in the near future.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_id</code><td>Enumeration<td><code>RAL_Rx_Schedule_Command</code>, <code>RAL_Tx_Schedule_Command</code><td>Forthcoming command.<tr><td><code>op_at</code><td><code>RalInstant</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#ralinstant>§RalInstant</a><td>Point in time at which the next operation is planned to start. For transmission, it corresponds to <code>tx_at</code>. For reception, it corresponds to <code>rx_min_at</code>.</table>
+<p><strong>Description:</strong></p>
+<p><code>RAL_Preschedule_Command</code> is an optional hint that informs the RAL of a forthcoming scheduling command, either <code>RAL_Tx_Schedule_Command</code> or <code>RAL_Rx_Schedule_Command</code>. This command does not transition the RAL state.</p>
+<p>The RAL MUST validate that <code>op_at</code> is in the future.
+If this validation fails, the RAL MUST emit <code>RAL_Preschedule_CommandEndEvent</code> with <code>command_status = ERROR_INVALID_PARAMETER</code>, closing the command lifecycle.</p>
+<p>If validation succeeds, the RAL MUST emit <code>RAL_Preschedule_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<p>The RAL MAY use the hint to improve scheduling efficiency.</p>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_cancel_command><code>RAL_Cancel_Command</code><a href=#ral_cancel_command class=hash-link aria-label="Direct link to ral_cancel_command" title="Direct link to ral_cancel_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Cancels the active command, if any, which causes the RAL to abort any scheduled or ongoing radio operation (transmission or reception).</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong></p>
+<p><code>RAL_Cancel_Command</code> requests to terminate the active command and abort the ongoing radio operation, if any.</p>
+<p>The RAL MUST validate that a command is active, i.e., the RAL state is <code>PENDING</code> or <code>RUNNING</code>. If no command is active, the RAL MUST emit <code>RAL_Cancel_CommandEndEvent</code> with <code>command_status = ERROR_ACTIVE_COMMAND_NOT_FOUND</code>, closing the command lifecycle.</p>
+<p>If a command is active, the RAL MUST cancel the <a class="" href=/docs/spec-rail/ral-overview#active-command>active command</a>.
+If the RAL is in <code>PENDING</code> state, the RAL MUST abort the scheduled radio operation and emit <code>RAL_Cancel_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.
+If the operation is in <code>RUNNING</code> state, the RAL MUST abort the ongoing radio operation immediately and emit <code>RAL_Cancel_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<p>If the RAL emits <code>RAL_Cancel_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, the RAL MUST prevent the emission of events solicited by the cancelled active command,
+except for events with <code>command_status = CANCELLED</code>.</p>
+<!-- -->
+<p>Note that upon success, as a result of closing the lifecycle of the active command, this command will cause the RAL to transition to the <code>IDLE</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>), as expressed in the description of the affected commands.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_state_wakeup_command><code>RAL_State_Wakeup_Command</code><a href=#ral_state_wakeup_command class=hash-link aria-label="Direct link to ral_state_wakeup_command" title="Direct link to ral_state_wakeup_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Transitions the RAL from <code>SLEEP</code> to <code>IDLE</code> state.</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong></p>
+<p><code>RAL_State_Wakeup_Command</code> requests the RAL to transition from <code>SLEEP</code> to <code>IDLE</code> state, making the radio operational and ready to execute commands.</p>
+<p>If the RAL state is not <code>SLEEP</code>, the RAL MUST emit <code>RAL_State_Wakeup_CommandEndEvent</code> with <code>command_status = ERROR_NOT_ALLOWED</code>, closing the command lifecycle.</p>
+<p>Otherwise, the RAL MUST transition to <code>IDLE</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>) and MUST emit <code>RAL_State_Wakeup_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_state_sleep_command><code>RAL_State_Sleep_Command</code><a href=#ral_state_sleep_command class=hash-link aria-label="Direct link to ral_state_sleep_command" title="Direct link to ral_state_sleep_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Transitions the RAL from <code>IDLE</code> to <code>SLEEP</code> state.</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong></p>
+<p><code>RAL_State_Sleep_Command</code> requests the RAL to transition from <code>IDLE</code> to <code>SLEEP</code> state, allowing the radio hardware to enter a power-saving mode.</p>
+<p>If the RAL state is not <code>IDLE</code>, the RAL MUST emit <code>RAL_State_Sleep_CommandEndEvent</code> with <code>command_status = ERROR_NOT_ALLOWED</code>, closing the command lifecycle.</p>
+<p>Otherwise, the RAL MUST transition to <code>SLEEP</code> state (see <a class="" href=/docs/spec-rail/ral-overview#state-transitions>§State Transitions</a>) and MUST emit <code>RAL_State_Sleep_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_state_get_command><code>RAL_State_Get_Command</code><a href=#ral_state_get_command class=hash-link aria-label="Direct link to ral_state_get_command" title="Direct link to ral_state_get_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Returns the current state of the RAL.</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong></p>
+<p><code>RAL_State_Get_Command</code> queries the current state of the RAL. This command does not transition the RAL state.</p>
+<p>The RAL MUST emit a <code>RAL_State_Get_CommandEndEvent</code> with <code>ral_state</code> equal to the RAL state, described in !REF.</p>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=events>Events<a href=#events class=hash-link aria-label="Direct link to Events" title="Direct link to Events" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_commandstatusevent><code>RAL_CommandStatusEvent</code><a href=#ral_commandstatusevent class=hash-link aria-label="Direct link to ral_commandstatusevent" title="Direct link to ral_commandstatusevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Rx_Schedule_Command</code>, <code>RAL_Tx_Schedule_Command</code></p>
+<p><strong>Summary:</strong> Reports whether the addressed scheduling command was accepted for processing.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_id</code><td>Enumeration<td><code>RAL_Rx_Schedule_Command</code>, <code>RAL_Tx_Schedule_Command</code><td>Identifies the command invocation being reported.<tr><td><code>command_status</code><td>Enumeration<td><code>ACCEPTED</code>, <code>REJECTED</code><td>Acceptance or rejection status. <code>ACCEPTED</code> is the only acceptance value.</table>
+<!-- -->
+<!-- -->
+<p><strong>Description:</strong> The RAL emits <code>RAL_CommandStatusEvent</code> after intake validation for the addressed scheduling command. <code>command_id</code> identifies the command. If <code>command_status = ACCEPTED</code>, the command-specific event sequence continues. Any other <code>command_status</code> value rejects the command invocation, closing its lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_rx_schedule_commandendevent><code>RAL_Rx_Schedule_CommandEndEvent</code><a href=#ral_rx_schedule_commandendevent class=hash-link aria-label="Direct link to ral_rx_schedule_commandendevent" title="Direct link to ral_rx_schedule_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Rx_Schedule_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a scheduled receive operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>CANCELLED</code>, <code>ERROR_DETECTION_TIMEOUT</code>, <code>ERROR_PTA_TIMEOUT</code>, <code>ERROR_FRAME_TIMEOUT</code>, <code>ERROR_FRAME_REJECTED</code>, <code>ERROR_FRAME_CORRUPTED</code>, <code>ERROR_NONCE_REQUIRED</code>, <code>ERROR_NOT_AUTHENTICATED</code>, <code>ERROR_DECRYPTION_FAILED</code><td>Final execution status.<tr><td><code>t_rx</code><td><code>RalInstant</code><td>As defined in <a class="" href=/docs/spec-rail/ral-overview#ralinstant>§RalInstant</a><td>Reception timestamp of the PTA. Accuracy: ± <code>TRX_MEASUREMENT_ACCURACY</code>. Valid only if <code>command_status = SUCCESS</code>.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Rx_Schedule_CommandEndEvent</code> upon conclusion of the accepted receive operation. This event is emitted only after <code>RAL_CommandStatusEvent</code> reported <code>command_status = ACCEPTED</code> for the same command invocation. It closes the lifecycle opened by <code>RAL_Rx_Schedule_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_tx_schedule_commandendevent><code>RAL_Tx_Schedule_CommandEndEvent</code><a href=#ral_tx_schedule_commandendevent class=hash-link aria-label="Direct link to ral_tx_schedule_commandendevent" title="Direct link to ral_tx_schedule_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Tx_Schedule_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a scheduled transmit operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>CANCELLED</code>, <code>ERROR_TX_DATA_LATE</code>, <code>ERROR_NONCE_REQUIRED</code>, <code>ERROR_NONCE_LATE</code>, <code>ERROR_ENCRYPTION_FAILED</code><td>Final execution status.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Tx_Schedule_CommandEndEvent</code> upon conclusion of the accepted transmit operation. This event is emitted only after <code>RAL_CommandStatusEvent</code> reported <code>command_status = ACCEPTED</code> for the same command invocation. It closes the lifecycle opened by <code>RAL_Tx_Schedule_Command</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_tx_buffer_released_commandevent><code>RAL_Tx_Buffer_Released_CommandEvent</code><a href=#ral_tx_buffer_released_commandevent class=hash-link aria-label="Direct link to ral_tx_buffer_released_commandevent" title="Direct link to ral_tx_buffer_released_commandevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Tx_Schedule_Command</code></p>
+<p><strong>Summary:</strong> Reports that the packet's <code>buffer_data</code> has returned to <code>BUFFER_OWNERSHIP_STATE_CALLER</code> before the transmission has concluded.</p>
+<p><strong>Parameters:</strong> None.</p>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Tx_Buffer_Released_CommandEvent</code> to signal that all of the active packet's <code>buffer_data</code> has returned to <code>BUFFER_OWNERSHIP_STATE_CALLER</code> and may be used by the caller again.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_rx_data_available_commandevent><code>RAL_Rx_Data_Available_CommandEvent</code><a href=#ral_rx_data_available_commandevent class=hash-link aria-label="Direct link to ral_rx_data_available_commandevent" title="Direct link to ral_rx_data_available_commandevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Rx_Schedule_Command</code></p>
+<p><strong>Summary:</strong> Indicates that a PSDU octet at a requested trigger position has been delivered.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>psdu_index</code><td>Unsigned Integer<td>Octet index within the PSDU<td>Index of the octet whose reception is being reported.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Rx_Data_Available_CommandEvent</code> each time a PSDU octet at a position specified in <code>psdu_trigger_indexes</code> is made available.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_tx_data_commit_commandendevent><code>RAL_Tx_Data_Commit_CommandEndEvent</code><a href=#ral_tx_data_commit_commandendevent class=hash-link aria-label="Direct link to ral_tx_data_commit_commandendevent" title="Direct link to ral_tx_data_commit_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Tx_Data_Commit_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a data commit request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_NOT_ALLOWED</code>, <code>ERROR_COMMIT_OUT_OF_ORDER</code>, <code>ERROR_INVALID_BUFFER_RANGE</code><td>Outcome of the commit request.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Tx_Data_Commit_CommandEndEvent</code> after processing a data commit request, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_nonce_commit_commandendevent><code>RAL_Nonce_Commit_CommandEndEvent</code><a href=#ral_nonce_commit_commandendevent class=hash-link aria-label="Direct link to ral_nonce_commit_commandendevent" title="Direct link to ral_nonce_commit_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Nonce_Commit_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a nonce commit request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_NOT_ALLOWED</code>, <code>ERROR_NONCE_ALREADY_COMMITTED</code>, or any RAL-specific error status.<td>Outcome of the commit request.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Nonce_Commit_CommandEndEvent</code> after processing a nonce commit request, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_preschedule_commandendevent><code>RAL_Preschedule_CommandEndEvent</code><a href=#ral_preschedule_commandendevent class=hash-link aria-label="Direct link to ral_preschedule_commandendevent" title="Direct link to ral_preschedule_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Preschedule_Command</code></p>
+<p><strong>Summary:</strong> Reports that the preschedule hint has been acknowledged.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_INVALID_PARAMETER</code><td>Outcome of the preschedule request.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Preschedule_CommandEndEvent</code> after acknowledging the preschedule hint, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_cancel_commandendevent><code>RAL_Cancel_CommandEndEvent</code><a href=#ral_cancel_commandendevent class=hash-link aria-label="Direct link to ral_cancel_commandendevent" title="Direct link to ral_cancel_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Cancel_Command</code></p>
+<p><strong>Summary:</strong> Reports the outcome of an abort request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_ACTIVE_COMMAND_NOT_FOUND</code><td>Outcome of the abort request.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Cancel_CommandEndEvent</code> after processing a command cancellation request, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_state_wakeup_commandendevent><code>RAL_State_Wakeup_CommandEndEvent</code><a href=#ral_state_wakeup_commandendevent class=hash-link aria-label="Direct link to ral_state_wakeup_commandendevent" title="Direct link to ral_state_wakeup_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_State_Wakeup_Command</code></p>
+<p><strong>Summary:</strong> Reports the outcome of a request to transition the RAL to <code>IDLE</code> state.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_NOT_ALLOWED</code><td>Outcome of the request.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_State_Wakeup_CommandEndEvent</code> after processing a <code>RAL_State_Wakeup_Command</code> request, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_state_sleep_commandendevent><code>RAL_State_Sleep_CommandEndEvent</code><a href=#ral_state_sleep_commandendevent class=hash-link aria-label="Direct link to ral_state_sleep_commandendevent" title="Direct link to ral_state_sleep_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_State_Sleep_Command</code></p>
+<p><strong>Summary:</strong> Reports the outcome of a request to transition the RAL to <code>SLEEP</code> state.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_NOT_ALLOWED</code><td>Outcome of the request.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_State_Sleep_CommandEndEvent</code> after processing a <code>RAL_State_Sleep_Command</code> request, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_state_get_commandendevent><code>RAL_State_Get_CommandEndEvent</code><a href=#ral_state_get_commandendevent class=hash-link aria-label="Direct link to ral_state_get_commandendevent" title="Direct link to ral_state_get_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_State_Get_Command</code></p>
+<p><strong>Summary:</strong> Reports the current state of a queried radio operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code><td>Outcome of the state query.<tr><td><code>ral_state</code><td>Enumeration<td><code>SLEEP</code>, <code>IDLE</code>, <code>PENDING</code>, <code>RUNNING</code><td>Current RAL state</table>
+<!-- -->
+<p><strong>Description:</strong> The RAL emits <code>RAL_State_Get_CommandEndEvent</code> after querying the RAL state, closing the command lifecycle.</p>
+</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/spec-rail/ral-config-service><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>RAL Configuration Service</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/spec-rail/ral-overview><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Overview</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#introduction class="table-of-contents__link toc-highlight">Introduction</a><ul><li><a href=#related-documents class="table-of-contents__link toc-highlight">Related Documents</a></ul><li><a href=#commands class="table-of-contents__link toc-highlight">Commands</a><ul><li><a href=#ral_rx_schedule_command class="table-of-contents__link toc-highlight"><code>RAL_Rx_Schedule_Command</code></a><li><a href=#ral_tx_schedule_command class="table-of-contents__link toc-highlight"><code>RAL_Tx_Schedule_Command</code></a><li><a href=#ral_tx_data_commit_command class="table-of-contents__link toc-highlight"><code>RAL_Tx_Data_Commit_Command</code></a><li><a href=#ral_nonce_commit_command class="table-of-contents__link toc-highlight"><code>RAL_Nonce_Commit_Command</code></a><li><a href=#ral_preschedule_command class="table-of-contents__link toc-highlight"><code>RAL_Preschedule_Command</code></a><li><a href=#ral_cancel_command class="table-of-contents__link toc-highlight"><code>RAL_Cancel_Command</code></a><li><a href=#ral_state_wakeup_command class="table-of-contents__link toc-highlight"><code>RAL_State_Wakeup_Command</code></a><li><a href=#ral_state_sleep_command class="table-of-contents__link toc-highlight"><code>RAL_State_Sleep_Command</code></a><li><a href=#ral_state_get_command class="table-of-contents__link toc-highlight"><code>RAL_State_Get_Command</code></a></ul><li><a href=#events class="table-of-contents__link toc-highlight">Events</a><ul><li><a href=#ral_commandstatusevent class="table-of-contents__link toc-highlight"><code>RAL_CommandStatusEvent</code></a><li><a href=#ral_rx_schedule_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Rx_Schedule_CommandEndEvent</code></a><li><a href=#ral_tx_schedule_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Tx_Schedule_CommandEndEvent</code></a><li><a href=#ral_tx_buffer_released_commandevent class="table-of-contents__link toc-highlight"><code>RAL_Tx_Buffer_Released_CommandEvent</code></a><li><a href=#ral_rx_data_available_commandevent class="table-of-contents__link toc-highlight"><code>RAL_Rx_Data_Available_CommandEvent</code></a><li><a href=#ral_tx_data_commit_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Tx_Data_Commit_CommandEndEvent</code></a><li><a href=#ral_nonce_commit_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Nonce_Commit_CommandEndEvent</code></a><li><a href=#ral_preschedule_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Preschedule_CommandEndEvent</code></a><li><a href=#ral_cancel_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_Cancel_CommandEndEvent</code></a><li><a href=#ral_state_wakeup_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_State_Wakeup_CommandEndEvent</code></a><li><a href=#ral_state_sleep_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_State_Sleep_CommandEndEvent</code></a><li><a href=#ral_state_get_commandendevent class="table-of-contents__link toc-highlight"><code>RAL_State_Get_CommandEndEvent</code></a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Specification</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs/spec-core/introduction>Core Services</a><li class=footer__item><a class=footer__link-item href=/docs/spec-rail/introduction>RAL Services</a><li class=footer__item><a class=footer__link-item href=/docs/glossary>Glossary</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>OpenSTX</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class=footer__link-item>About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class=footer__link-item>Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class=footer__link-item>Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class=footer__link-item>Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org target=_blank rel="noopener noreferrer" class=footer__link-item>openstxfoundation.org<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/openstx/public-specification target=_blank rel="noopener noreferrer" class=footer__link-item>public-specification (GitHub)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class=footer__link-item>Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>OpenSTX is hosted at the Linux Foundation. Copyright © 2026 The Linux Foundation. This draft specification is not an approved release.</div></div></div></footer></div></body>

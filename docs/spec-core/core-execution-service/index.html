@@ -1,0 +1,534 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-spec-core/core-execution-service" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Core Execution Service | OpenSTX Specification</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true name=twitter:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true property=og:url content=https://docs.openstxfoundation.org/docs/spec-core/core-execution-service /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Core Execution Service | OpenSTX Specification"/><meta data-rh=true name=description content=Introduction /><meta data-rh=true property=og:description content=Introduction /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://docs.openstxfoundation.org/docs/spec-core/core-execution-service /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-core/core-execution-service hreflang=en /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-core/core-execution-service hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/category/core-services","name":"Core Services","position":1},{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/spec-core/core-execution-service","name":"Core Execution Service","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.55f33b09.css /><script src=/assets/js/runtime~main.f4cd4d72.js defer></script><script src=/assets/js/main.b3cd52e2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-d58")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/openstx-logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">OpenSTX</b></a><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/category/core-services>Specification</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/core-services><span class=categoryLinkLabel_W154>Core Services</span></a><button aria-label="Collapse sidebar category 'Core Services'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-configuration-service><span class=linkLabel_WmDU>Core Configuration Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/spec-core/core-execution-service><span class=linkLabel_WmDU>Core Execution Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-overview><span class=linkLabel_WmDU>Core Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-packet-manager-service><span class=linkLabel_WmDU>Core Packet Manager Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/core-synchronization-service><span class=linkLabel_WmDU>Core Synchronization Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-core/introduction><span class=linkLabel_WmDU>Introduction</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/general-description><span class=categoryLinkLabel_W154>General Description</span></a><button aria-label="Expand sidebar category 'General Description'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/ral-services><span class=categoryLinkLabel_W154>RAL Services</span></a><button aria-label="Expand sidebar category 'RAL Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/security><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/glossary><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/core-services><span>Core Services</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Core Execution Service</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class=admonitionHeading_Gvgb><span class=admonitionIcon_Rf37><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>Draft specification — subject to change.</div><div class=admonitionContent_BuS1>This is not an approved release.</div></div><div class="theme-doc-markdown markdown"><header><h1>Core Execution Service</h1></header>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=introduction>Introduction<a href=#introduction class=hash-link aria-label="Direct link to Introduction" title="Direct link to Introduction" translate=no>​</a></h2>
+<p>The Execution Service schedules timeframes, single TX and RX actions, and skips. The layer above Core schedules a timeframe declaring a TU budget, then fills it with TX actions, RX actions, and skips to consume the budget fully, then schedules the next timeframe. Core sequences scheduled slots using the TUC, which advances by each slot duration. Core may hold several active commands at the same time in its local schedule representation, each identified by a command handle (see <a class="" href=/docs/spec-core/core-overview#active-txrx-commands-and-handles>Active TX/RX commands and handles</a>).
+For each TX or RX action, Core translates the request into RAL operations and submits them through the RAL Execution Service.</p>
+<p>The normative behavior is defined in sections <a href=#commands class="">Commands</a> and <a href=#events class="">Events</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=related-documents>Related Documents<a href=#related-documents class=hash-link aria-label="Direct link to Related Documents" title="Direct link to Related Documents" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Document<th>Description<tbody><tr><td><a class="" href=/docs/spec-core/introduction>Introduction</a><td>Introduction to the Core Services<tr><td><a class="" href=/docs/spec-core/core-overview>Core Overview</a><td>Defines Core time and scheduling concepts<tr><td><a class="" href=/docs/spec-core/core-packet-manager-service>Packet Manager Service</a><td>Provides the CorePackets bound to TX and RX actions<tr><td><a class="" href=/docs/spec-core/core-synchronization-service>Synchronization Service</a><td>Establishes the TREF of timeframes<tr><td><a class="" href=/docs/spec-rail/ral-execution-service>RAL Execution Service</a><td>Executes the radio operations Core translates actions into<tr><td><a class="" href=/docs/spec-rail/ral-security-service>RAL Security Service</a><td>Provides the cipher that protects the frames of protected actions</table>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=commands>Commands<a href=#commands class=hash-link aria-label="Direct link to Commands" title="Direct link to Commands" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_timeframe_command><code>CORE_Schedule_Timeframe_Command</code><a href=#core_schedule_timeframe_command class=hash-link aria-label="Direct link to core_schedule_timeframe_command" title="Direct link to core_schedule_timeframe_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Schedules a timeframe of a given TU duration, starting at the current TREF.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>duration</code><td>Unsigned Integer<td>Greater than 0<td>Duration of the timeframe in TU.</table>
+<p><strong>Description:</strong></p>
+<p><code>CORE_Schedule_Timeframe_Command</code> requests Core to open a new timeframe. The timeframe starts at the current TREF.</p>
+<p>Core MUST emit exactly one <code>CORE_Schedule_Timeframe_CommandEndEvent</code> for each <code>CORE_Schedule_Timeframe_Command</code> processed.</p>
+<p>A new timeframe may be scheduled as soon as the previous timeframe is fully allocated with slots (the TUC of the last slot plus the slot duration has reached the timeframe duration), even if the radio is still executing earlier actions.
+If a timeframe is already active and not fully allocated with slots, Core MUST emit <code>CORE_Schedule_Timeframe_CommandEndEvent</code> with <code>command_status = ERROR_TIMEFRAME_ACTIVE</code>, closing the command lifecycle.</p>
+<p>If no TREF is established, Core MUST emit <code>CORE_Schedule_Timeframe_CommandEndEvent</code> with <code>command_status = ERROR_TREF_NOT_SET</code>, closing the command lifecycle.</p>
+<p>If the schedule has reached <code>coreUpcomingScheduleCapacity</code>, Core MUST emit <code>CORE_Schedule_Timeframe_CommandEndEvent</code> with <code>command_status = ERROR_SCHEDULE_FULL</code>, closing the command lifecycle.</p>
+<p>If the command succeeds, Core MUST eventually advance TREF by the duration of the previous timeframe (if any) and set the TUC to 0, without disruption to the current timeframe, and before the start of the scheduled timeframe. The new timeframe starts at the updated TREF. Core MUST emit <code>CORE_Schedule_Timeframe_CommandEndEvent</code> with <code>command_status = SUCCESS</code> and the updated TREF.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_tx_command><code>CORE_Schedule_Tx_Command</code><a href=#core_schedule_tx_command class=hash-link aria-label="Direct link to core_schedule_tx_command" title="Direct link to core_schedule_tx_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Schedules a TX action of a given TU duration, provided a CorePacket that holds the data to transmit.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>duration</code><td>Unsigned Integer<td>Greater than 0<td>Duration of the transmit action in TU.<tr><td><code>core_packet</code><td><a class="" href=/docs/spec-core/core-overview#table-core-packet-parameters><code>CorePacket</code></a><td>—<td>The object carrying the payload to be transmitted.<tr><td><code>dst_addr_mode</code><td>Enumeration<td><code>NONE</code>, <code>SHORT</code>, <code>EXTENDED</code><td>Destination addressing mode for this frame. <code>NONE</code> indicates broadcast.<tr><td><code>dst_addr</code><td>—<td>As implied by <code>dst_addr_mode</code><td>Destination address. Omitted when <code>dst_addr_mode = NONE</code>.<tr><td><code>dst_pan_id</code><td>Unsigned Integer<td><code>0x0000..0xffff</code><td>Destination PAN ID for this frame. <code>0xffff</code> is the broadcast PAN accepted by all PANs.<tr><td><code>src_addr_mode</code><td>Enumeration<td><code>NONE</code>, <code>SHORT</code>, <code>EXTENDED</code><td>Source addressing mode for this frame. <code>NONE</code> indicates no source address.<tr><td><code>aux_sec_present</code><td>Boolean<td><code>FALSE</code> while <code>coreSecurityEnabled</code> is <code>FALSE</code><td>Whether the frame carries the Aux Sec field.<tr><td><code>src_addr</code><td>Unsigned Integer<td>A short address. Optional.<td>Source address to use in the Src Addr field where <code>src_addr_mode</code> is <code>SHORT</code>, regardless of whether security is enabled. On a protected frame, also supplies the short source address in the nonce, even when the header omits it.<tr><td><code>aux_sec</code><td>Octet String<td>4 octets. Optional; given only while <code>coreSecurityEnabled</code> is <code>TRUE</code>.<td>IV seed to use in the nonce and, where <code>aux_sec_present</code> is <code>TRUE</code>, in the Aux Sec field. Core does not check where the supplied seed comes from.</table>
+<p><strong>Description:</strong></p>
+<p><code>CORE_Schedule_Tx_Command</code> requests Core to schedule a TX action within the current timeframe, allocating a slot of size <code>duration</code>, starting at the first unallocated TU in the timeframe. Core assembles the Core header of the transmitted PSDU from <code>dst_pan_id</code>, <code>dst_addr_mode</code>/<code>dst_addr</code>, <code>src_addr_mode</code>, local configuration attributes <code>corePanId</code>/<code>coreShortAddress</code>/<code>coreExtendedAddress</code>, plus time fields <code>TUC = TUC_slot + coreTxOffset</code> and <code>TFC</code> timeframe counter. On a protected frame it adds the Aux Sec field where <code>aux_sec_present</code> asks for it. The optional <code>src_addr</code> and <code>aux_sec</code> override their respective values independently; a relay may pass the values of the frame it relays, and an unprotected relay may pass <code>src_addr</code> alone. Core does not require either value to come from a received frame. The payload comes from the provided <code>CorePacket</code>.</p>
+<!-- -->
+<!-- -->
+<p>Core MUST emit <code>CORE_CommandStatusEvent</code> with <code>command_id = CORE_Schedule_Tx_Command</code>.</p>
+<p>If no timeframe is active, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If <code>duration</code> would overrun the remaining duration of the current timeframe, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If the schedule has reached <code>coreUpcomingScheduleCapacity</code>, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>Core MUST also reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle, if <code>src_addr</code> is given and <code>src_addr_mode</code> is <code>EXTENDED</code>, since the supplied short address does not identify an extended source address, or if <code>aux_sec</code> is given while <code>coreSecurityEnabled</code> is <code>FALSE</code>.</p>
+<p>While <code>coreSecurityEnabled</code> is <code>TRUE</code>, if a draw of a new IV seed that this command needs fails, as described below, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle. Core then discards its IV seed.</p>
+<p>While <code>coreSecurityEnabled</code> is <code>TRUE</code>, Core MUST set <code>Security Enabled</code> in the header, and when Core accepts the command, it fixes the header and the nonce of the frame; a later change of the TFC does not change them. Core MUST build the nonce as described in <a class="" href=/docs/spec-core/core-overview#nonce>Nonce</a>: from <code>src_addr</code> where supplied and otherwise <code>coreShortAddress</code>, from <code>aux_sec</code> where supplied and otherwise its own IV seed, and from the TFC of the timeframe and the TUC of the frame, <code>TUC_slot + coreTxOffset</code>. When <code>aux_sec</code> is absent, Core MUST first draw a new IV seed through <code>RAL_Crypto_Iv_Seed_Command</code> if it holds none, or if the frame's TFC and TUC, as the nonce holds them and compared TFC first, are not greater than those of the previous frame it used its seed for. A supplied <code>aux_sec</code> does not replace or advance Core's own IV seed state. The upper layer remains responsible for the nonce-uniqueness rules when it supplies either value. If Core holds no TFC because no <code>CORE_Tref_Sync_Command</code> has set one, it holds one from its first protected transmission.</p>
+<p>If the command is accepted, Core MUST allocate the slot, create a handle, and report <code>command_status = ACCEPTED</code> with the handle in <code>CORE_CommandStatusEvent</code>.</p>
+<p>Core then translates the action into a RAL TX operation in radio time and submits it through the RAL Execution Service, through the following procedure:</p>
+<ol>
+<li class="">At acceptance, Core computes the point in time of the PTA in radio time as <code>tx_at = TREF_radio + (TUC_slot + coreTxOffset) * coreTuSize</code>, where <code>TUC_slot</code> is the TUC of the allocated slot and <code>TREF_radio</code> is TREF expressed in radio time.</li>
+<li class="">At acceptance, Core prepares the PSDU in the <code>PacketBuffer</code> associated with the <code>CorePacket</code>.
+Core determines the Core header of the frame and its size <code>H</code>. The header carries the addressing fields from the command parameters and the <code>coreShortAddress</code> or <code>coreExtendedAddress</code> configuration attribute, the network identifier from the <code>corePanId</code> configuration attribute, and the TUC equal to <code>TUC_slot + coreTxOffset</code>, the position of the PTA. The Core header begins with control flags that indicate, for each optional field, whether it is present. Core omits every optional field that is absent for the transmission (for example, the destination address when <code>dst_addr_mode = NONE</code>, or the source address when <code>src_addr_mode = NONE</code>).</li>
+<li class="">Core issues <code>RAL_Buffer_Configure_Regions_Command</code> with <code>psdu_length = H + data_len + F</code>. If <code>Security Enabled</code> is <code>1</code>, Core MUST place the Core header in the authenticated and not encrypted region and the payload in the authenticated and encrypted region, by setting <code>region_unsecured_size = 0</code> and <code>region_authenticated_size = H</code>. If <code>Security Enabled</code> is <code>0</code>, Core MUST declare an unsecured partition, by setting <code>region_unsecured_size = H + data_len</code> and <code>region_authenticated_size = 0</code>.</li>
+<li class="">Core writes the Core header in the appropriate regions of <code>core_packet</code>, issuing <code>RAL_Buffer_Mark_Touched_Command</code>, with parameters <code>from = 0</code>, and <code>to = H + data_len</code>.
+<strong>Note.</strong> The payload is already in place, since the upper layer wrote it before the <code>CorePacket</code> was committed. Declaring the partition does not move or discard it.
+<!-- -->
+</li>
+<li class="">If the RAL is in <code>SLEEP</code> state, Core wakes it with <code>RAL_State_Wakeup_Command</code> so that the RAL is in <code>IDLE</code> state sufficiently early before the transmission start time.</li>
+<li class="">Core issues <code>RAL_Tx_Schedule_Command</code> providing the <code>PacketBuffer</code> and <code>tx_at</code> parameters. Core MUST issue it only after the lifecycle of the RAL command of the previous slot has closed.
+If <code>Security Enabled</code> is <code>1</code>, Core supplies the nonce it fixed at acceptance as the <code>nonce</code> parameter. Core MAY commit it with the command (<code>nonce_implicit_commit = TRUE</code>) or later through <code>RAL_Nonce_Commit_Command</code>.</li>
+</ol>
+<!-- -->
+<!-- -->
+<p>If any command that Core issues within the execution of this command to the RAL Buffer Manager Service fails, or if the RAL rejects <code>RAL_Tx_Schedule_Command</code>, Core MUST emit <code>CORE_Schedule_Tx_CommandEndEvent</code> with <code>command_status = ERROR_TX_FAILED</code>, closing the command lifecycle.</p>
+<p>Upon <code>RAL_Tx_Schedule_CommandEndEvent</code>, Core MUST emit <code>CORE_Schedule_Tx_CommandEndEvent</code>, closing the command lifecycle, with <code>command_status = SUCCESS</code> if the RAL reports <code>SUCCESS</code>, <code>command_status = CANCELLED</code> if the RAL reports <code>CANCELLED</code>, and <code>command_status = ERROR_TX_FAILED</code> otherwise.</p>
+<p>If this command is cancelled while its <code>RAL_Tx_Schedule_Command</code> is the RAL <a class="" href=/docs/spec-rail/ral-overview#active-command>active command</a>, Core MUST issue <code>RAL_Cancel_Command</code>. If the cancellation occurs after Core has issued <code>RAL_Tx_Schedule_Command</code> but before the RAL has accepted or rejected it, Core MUST issue <code>RAL_Cancel_Command</code> as soon as the command is accepted. If Core has not yet issued <code>RAL_Tx_Schedule_Command</code>, Core MUST cease the execution of this command emit <code>CORE_Schedule_Tx_CommandEndEvent</code> with <code>command_status = CANCELLED</code>, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_rx_command><code>CORE_Schedule_Rx_Command</code><a href=#core_schedule_rx_command class=hash-link aria-label="Direct link to core_schedule_rx_command" title="Direct link to core_schedule_rx_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Schedules an RX action of a given TU duration, bound to a CorePacket that is to receive the PSDU.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>duration</code><td>Unsigned Integer<td>Greater than 0<td>Duration of the receive action in TU.<tr><td><code>core_packet</code><td><a class="" href=/docs/spec-core/core-overview#table-core-packet-parameters><code>CorePacket</code></a><td>—<td>The object into which the received payload is delivered.<tr><td><code>frame_control</code><td>Unsigned Integer<td><code>0x0000..0xffff</code><td>The Frame Control field of the protected frame this action expects. Used only while <code>coreSecurityEnabled</code> is <code>TRUE</code>.<tr><td><code>src_addr</code><td>Unsigned Integer<td>A short address. Optional.<td>The short address to use in the nonce when the expected frame carries no short source address.<tr><td><code>aux_sec</code><td>Octet String<td>4 octets. Optional.<td>The IV seed to use in the nonce when the expected frame carries no Aux Sec field.</table>
+<!-- -->
+<p><strong>Description:</strong></p>
+<p><code>CORE_Schedule_Rx_Command</code> requests Core to schedule an RX action within the current timeframe, allocating a slot of size <code>duration</code>, starting at the first unallocated TU in the timeframe.</p>
+<p>Core MUST emit <code>CORE_CommandStatusEvent</code> with <code>command_id = CORE_Schedule_Rx_Command</code>.</p>
+<p>If no timeframe is active, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If <code>duration</code> would overrun the remaining duration of the current timeframe, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If the schedule has reached <code>coreUpcomingScheduleCapacity</code>, Core MUST reject the command in <code>CORE_CommandStatusEvent</code> with <code>command_status = REJECTED</code>, closing the command lifecycle.</p>
+<p>If the command is accepted, Core MUST allocate the slot, create a handle, and report <code>command_status = ACCEPTED</code> with the handle in <code>CORE_CommandStatusEvent</code>.</p>
+<p>Core then translates the action into a RAL RX operation in radio time and submits it through the RAL Execution Service, through the following procedure:</p>
+<ol>
+<li class="">Core computes the expected point in time of the PTA of an incoming frame in radio time as <code>TREF_radio + (TUC_slot + coreTxOffset) * coreTuSize</code>, where <code>TUC_slot</code> is the TUC of the allocated slot. It then computes <code>rx_min_at</code>, <code>rx_max_at</code>, starting from the expected point in time of the PTA and reducing/increasing it by the maximum expected anticipation/delay of the transmitter (due to, e.g., clock drift). </li>
+<li class="">If the RAL is in <code>SLEEP</code> state, Core wakes it with <code>RAL_State_Wakeup_Command</code> so that the RAL is in <code>IDLE</code> state sufficiently early before the reception start time.</li>
+<li class="">Before it issues <code>RAL_Rx_Schedule_Command</code>, Core declares the partition of the <code>PacketBuffer</code> via <code>RAL_Buffer_Configure_Regions_Command</code>. While <code>coreSecurityEnabled</code> is <code>FALSE</code>, the partition is unsecured, with <code>psdu_length</code> the largest PSDU the <code>PacketBuffer</code> accepts and <code>region_unsecured_size = psdu_length - F</code>. Otherwise, the header that <code>frame_control</code> describes, of size <code>H</code>, is the authenticated and not encrypted region and the payload is the authenticated and encrypted region: <code>region_unsecured_size = 0</code>, <code>region_authenticated_size = H</code> and <code>psdu_length = H + max_data_len + F</code>, where <code>max_data_len</code> is that of the <code>CorePacket</code>. If the declaration fails, Core MUST NOT issue <code>RAL_Rx_Schedule_Command</code>, and MUST emit <code>CORE_Schedule_Rx_CommandEndEvent</code> with <code>command_status = ERROR_RX_FAILED</code>, closing the command lifecycle. Core issues <code>RAL_Rx_Schedule_Command</code>. Its <code>packet</code> parameter SHOULD be set to the <code>PacketBuffer</code> associated with <code>core_packet</code>. <code>rx_min_at</code>, <code>rx_max_at</code> are provided as computed in previous steps. The <code>frame_timeout</code> parameter is set equal to the maximum on-air duration of the part of the PPDU that follows the PTA after <code>rx_max_at</code>, for the largest complete on-air PSDU the <code>PacketBuffer</code> accepts, including the MIC when protected. Core MUST issue it only after the lifecycle of the RAL command of the previous slot has closed.</li>
+<li class="">While <code>coreSecurityEnabled</code> is <code>TRUE</code>, Core supplies the nonce described in <a class="" href=/docs/spec-core/core-overview#nonce>Nonce</a> as the <code>nonce</code> parameter. Core MUST build it from the TFC of the timeframe and the TUC of the frame, <code>TUC_slot + coreTxOffset</code>, if it holds a TFC, and otherwise from those the frame carries; and from the short source address and IV seed the frame carries, and otherwise from <code>src_addr</code> and <code>aux_sec</code>. If it knows every value of the nonce before the frame arrives, it MAY commit it with the command (<code>nonce_implicit_commit = TRUE</code>). Otherwise it adds the last octet of the header, <code>H - 1</code>, to <code>psdu_trigger_indexes</code>, and at the <code>RAL_Rx_Data_Available_CommandEvent</code> for that octet it reads the header with <code>RAL_Buffer_Ensure_Available_Command</code>, builds the nonce and commits it through <code>RAL_Nonce_Commit_Command</code>.</li>
+</ol>
+<!-- -->
+<p>If the RAL rejects <code>RAL_Rx_Schedule_Command</code>, Core MUST emit <code>CORE_Schedule_Rx_CommandEndEvent</code> with <code>command_status = ERROR_RX_FAILED</code>, closing the command lifecycle.</p>
+<p>Upon <code>RAL_Rx_Schedule_CommandEndEvent</code>, Core MUST emit <code>CORE_Schedule_Rx_CommandEndEvent</code>, closing the command lifecycle, with:</p>
+<ul>
+<li class=""><code>command_status = CANCELLED</code> if the RAL reports <code>CANCELLED</code> for a cancellation of this command,</li>
+<li class=""><code>command_status = ERROR_DETECTION_TIMEOUT</code> if the RAL reports <code>ERROR_DETECTION_TIMEOUT</code> or <code>ERROR_PTA_TIMEOUT</code>,</li>
+<li class=""><code>command_status = ERROR_RX_FAILED</code> if the RAL reports <code>ERROR_FRAME_TIMEOUT</code>, <code>ERROR_FRAME_REJECTED</code>, <code>ERROR_FRAME_CORRUPTED</code>, <code>ERROR_NONCE_REQUIRED</code>, <code>ERROR_NOT_AUTHENTICATED</code>, or <code>ERROR_DECRYPTION_FAILED</code>, or if it reports <code>CANCELLED</code> for a reception Core cancelled because its header failed the checks below,</li>
+<li class="">the outcome of the procedure below if the RAL reports <code>SUCCESS</code>.</li>
+</ul>
+<p>If the RAL reports <code>SUCCESS</code>, Core issues <code>RAL_Buffer_Ensure_Available_Command</code> with parameters <code>from = 0</code> and <code>to = psdu_length - F</code>. If that command succeeds, Core parses the Core header and determines its size <code>H</code>. If the command fails, the header is malformed, <code>psdu_length &lt; H + F</code>, or the header check below refuses the frame, Core MUST emit <code>CORE_Schedule_Rx_CommandEndEvent</code> with <code>command_status = ERROR_RX_FAILED</code>, closing the command lifecycle. Otherwise, Core sets <code>CorePacket.data</code> to the octet that follows the Core header and <code>CorePacket.data_len</code> to <code>psdu_length - H - F</code>, then MUST emit <code>CORE_Schedule_Rx_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle. The RX timestamp (<code>t_rx</code>) is captured internally in the state of the completed RX command, where it is available to <code>CORE_Tref_Sync_Command</code> via the command handle.</p>
+<!-- -->
+<p>While <code>coreSecurityEnabled</code> is <code>TRUE</code>, Core checks the header of every received frame, at the <code>RAL_Rx_Data_Available_CommandEvent</code> of step 4 if it requested one, and otherwise after the RAL reports <code>SUCCESS</code>. Core MUST refuse the frame if:</p>
+<ul>
+<li class="">its Frame Control field differs from <code>frame_control</code>,</li>
+<li class="">Core holds a TFC and the frame carries a TFC or TUC that differs from its own,</li>
+<li class="">a value the nonce needs is neither in the frame nor available to Core, or</li>
+<li class="">Core cannot read the header or commit the nonce.</li>
+</ul>
+<p>At the data event, Core refuses the frame by issuing <code>RAL_Cancel_Command</code>. While <code>coreSecurityEnabled</code> is <code>FALSE</code>, Core MUST refuse a frame whose <code>Security Enabled</code> bit is set. A refused frame ends with <code>command_status = ERROR_RX_FAILED</code> and yields no <code>CorePacket</code>.</p>
+<p>If this command is cancelled while its <code>RAL_Rx_Schedule_Command</code> is the RAL <a class="" href=/docs/spec-rail/ral-overview#active-command>active command</a>, Core MUST issue <code>RAL_Cancel_Command</code>. If the cancellation occurs after Core has issued <code>RAL_Rx_Schedule_Command</code> but before the RAL has accepted or rejected it, Core MUST issue <code>RAL_Cancel_Command</code> as soon as the command is accepted. If Core has not yet issued <code>RAL_Rx_Schedule_Command</code>, Core MUST cease the execution of this command and emit <code>CORE_Schedule_Rx_CommandEndEvent</code> with <code>command_status = CANCELLED</code>, closing the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_skip_command><code>CORE_Schedule_Skip_Command</code><a href=#core_schedule_skip_command class=hash-link aria-label="Direct link to core_schedule_skip_command" title="Direct link to core_schedule_skip_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Schedules a skip of a given TU duration. A skip is a slot that reserves an idle interval for its duration, and may authorize Core to put the radio to sleep.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>duration</code><td>Unsigned Integer<td>Greater than 0<td>Duration of the skip in TU.<tr><td><code>allow_sleep</code><td>Boolean<td>—<td>If <code>TRUE</code>, Core is allowed to change the radio state to <code>SLEEP</code> during the skip slot.</table>
+<p><strong>Description:</strong></p>
+<p><code>CORE_Schedule_Skip_Command</code> requests Core to schedule a skip within the current timeframe, allocating a slot of size <code>duration</code>, starting at the first unallocated TU in the timeframe.</p>
+<p>Core MUST emit exactly one <code>CORE_Schedule_Skip_CommandEndEvent</code> for each <code>CORE_Schedule_Skip_Command</code> processed.</p>
+<p>If no timeframe is active, Core MUST emit <code>CORE_Schedule_Skip_CommandEndEvent</code> with <code>command_status = ERROR_NO_TIMEFRAME</code>, closing the command lifecycle.</p>
+<p>If <code>duration</code> would overrun the remaining duration of the current timeframe, Core MUST emit <code>CORE_Schedule_Skip_CommandEndEvent</code> with <code>command_status = ERROR_OVERRUN</code>, closing the command lifecycle.</p>
+<p>If the schedule has reached <code>coreUpcomingScheduleCapacity</code>, Core MUST emit <code>CORE_Schedule_Skip_CommandEndEvent</code> with <code>command_status = ERROR_SCHEDULE_FULL</code>, closing the command lifecycle.</p>
+<p>If the command succeeds, Core MUST allocate the slot and emit <code>CORE_Schedule_Skip_CommandEndEvent</code> with <code>command_status = SUCCESS</code>. A skip allocates no handle. When <code>allow_sleep = TRUE</code>, Core MAY put the radio to sleep for the duration of the skip. If it does, Core MUST wake the radio in time for the next scheduled action.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_cancel_command><code>CORE_Cancel_Command</code><a href=#core_cancel_command class=hash-link aria-label="Direct link to core_cancel_command" title="Direct link to core_cancel_command" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Cancels the active TX or RX command identified by its handle and aborts its underlying RAL operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_handle</code><td>Unsigned Integer<td>A valid command handle<td>Identifies the active command to cancel.</table>
+<p><strong>Description:</strong></p>
+<p><code>CORE_Cancel_Command</code> requests Core to cancel an active TX or RX command and abort its underlying RAL operation.</p>
+<p>Core MUST emit exactly one <code>CORE_Cancel_CommandEndEvent</code> for each <code>CORE_Cancel_Command</code> processed.</p>
+<p>If <code>command_handle</code> does not identify an active TX or RX command, Core MUST emit <code>CORE_Cancel_CommandEndEvent</code> with <code>command_status = ERROR_ACTIVE_COMMAND_NOT_FOUND</code>, closing the command lifecycle.</p>
+<p>Otherwise, Core MUST cancel the identified command and emit <code>CORE_Cancel_CommandEndEvent</code> with <code>command_status = SUCCESS</code>, closing the command lifecycle.</p>
+<p><strong>Note.</strong> If the command succeeds, Core may issue <code>RAL_Cancel_Command</code> for the underlying active command
+following the procedures in <code>CORE_Schedule_Tx_Command</code> and <code>CORE_Schedule_Rx_Command</code>.</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=events>Events<a href=#events class=hash-link aria-label="Direct link to Events" title="Direct link to Events" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_commandstatusevent><code>CORE_CommandStatusEvent</code><a href=#core_commandstatusevent class=hash-link aria-label="Direct link to core_commandstatusevent" title="Direct link to core_commandstatusevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Schedule_Tx_Command</code>, <code>CORE_Schedule_Rx_Command</code></p>
+<p><strong>Summary:</strong> Reports whether the addressed scheduling command was accepted for processing.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_id</code><td>Enumeration<td><code>CORE_Schedule_Tx_Command</code>, <code>CORE_Schedule_Rx_Command</code><td>Identifies the command invocation being reported.<tr><td><code>command_status</code><td>Enumeration<td><code>ACCEPTED</code>, <code>REJECTED</code><td>Acceptance or rejection status. <code>ACCEPTED</code> is the only acceptance value.<tr><td><code>command_handle</code><td>Unsigned Integer<td>Present only when <code>command_status = ACCEPTED</code>.<td>Handle allocated for the accepted scheduling command.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_CommandStatusEvent</code> after intake validation for the addressed scheduling command. <code>command_id</code> identifies the command. If <code>command_status = ACCEPTED</code>, the command-specific event sequence continues, correlated by <code>command_handle</code>. Any other <code>command_status</code> value rejects the command invocation, closing its lifecycle without a terminal event.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_timeframe_commandendevent><code>CORE_Schedule_Timeframe_CommandEndEvent</code><a href=#core_schedule_timeframe_commandendevent class=hash-link aria-label="Direct link to core_schedule_timeframe_commandendevent" title="Direct link to core_schedule_timeframe_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Schedule_Timeframe_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a timeframe scheduling request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_TIMEFRAME_ACTIVE</code>, <code>ERROR_TREF_NOT_SET</code>, <code>ERROR_SCHEDULE_FULL</code><td>Outcome of the timeframe scheduling request.<tr><td><code>tref</code><td><code>SystemInstant</code><td>Present only when <code>command_status = SUCCESS</code>.<td>The TREF the timeframe starts at, expressed as a system time value.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Schedule_Timeframe_CommandEndEvent</code> after processing a timeframe scheduling request. This event closes the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_tx_commandendevent><code>CORE_Schedule_Tx_CommandEndEvent</code><a href=#core_schedule_tx_commandendevent class=hash-link aria-label="Direct link to core_schedule_tx_commandendevent" title="Direct link to core_schedule_tx_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Schedule_Tx_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of the scheduled transmit operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_handle</code><td>Unsigned Integer<td>—<td>Handle of the transmit command.<tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_TX_FAILED</code>, <code>CANCELLED</code><td>Final execution status.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Schedule_Tx_CommandEndEvent</code> upon conclusion of the accepted transmit operation. This event is emitted only after <code>CORE_CommandStatusEvent</code> reported <code>command_status = ACCEPTED</code> for the same command invocation. It closes the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_rx_commandendevent><code>CORE_Schedule_Rx_CommandEndEvent</code><a href=#core_schedule_rx_commandendevent class=hash-link aria-label="Direct link to core_schedule_rx_commandendevent" title="Direct link to core_schedule_rx_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Schedule_Rx_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of the scheduled receive operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_handle</code><td>Unsigned Integer<td>—<td>Handle of the receive command.<tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_DETECTION_TIMEOUT</code>, <code>ERROR_RX_FAILED</code>, <code>CANCELLED</code><td>Final execution status. A frame received with a failed authentication check is reported as <code>ERROR_RX_FAILED</code>.<tr><td><code>core_packet</code><td><code>CorePacket</code><td>Present only when <code>command_status = SUCCESS</code>.<td>The CorePacket carrying the received payload.<tr><td><code>src_addr_mode</code><td>Enumeration<td><code>NONE</code>, <code>SHORT</code>, <code>EXTENDED</code><td>Source addressing mode the received Core header held; <code>NONE</code> where it held no source address. Valid only if <code>command_status = SUCCESS</code>.<tr><td><code>src_addr</code><td>Unsigned Integer<td>As implied by <code>src_addr_mode</code><td>Source address the received Core header held. Valid only if <code>command_status = SUCCESS</code> and <code>src_addr_mode</code> is not <code>NONE</code>.<tr><td><code>aux_sec</code><td>Octet String<td>4 octets. Present only when <code>command_status = SUCCESS</code> and the header carried <code>Aux Sec</code>.<td><code>Aux Sec</code> the received Core header held.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Schedule_Rx_CommandEndEvent</code> upon conclusion of the accepted receive operation. This event is emitted only after <code>CORE_CommandStatusEvent</code> reported <code>command_status = ACCEPTED</code> for the same command invocation. It closes the command lifecycle. The reception radio time is captured internally in the state of the completed RX command and is available to <code>CORE_Tref_Sync_Command</code>. Core never exposes radio time in this event.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_schedule_skip_commandendevent><code>CORE_Schedule_Skip_CommandEndEvent</code><a href=#core_schedule_skip_commandendevent class=hash-link aria-label="Direct link to core_schedule_skip_commandendevent" title="Direct link to core_schedule_skip_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Schedule_Skip_Command</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a skip scheduling request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_NO_TIMEFRAME</code>, <code>ERROR_OVERRUN</code>, <code>ERROR_SCHEDULE_FULL</code><td>Outcome of the skip scheduling request.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Schedule_Skip_CommandEndEvent</code> after processing a skip scheduling request. A skip is a slot without TX/RX operations, so this event is emitted at intake. This event closes the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_cancel_commandendevent><code>CORE_Cancel_CommandEndEvent</code><a href=#core_cancel_commandendevent class=hash-link aria-label="Direct link to core_cancel_commandendevent" title="Direct link to core_cancel_commandendevent" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>CORE_Cancel_Command</code></p>
+<p><strong>Summary:</strong> Reports the outcome of a cancellation request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>ERROR_ACTIVE_COMMAND_NOT_FOUND</code><td>Outcome of the cancellation request.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Cancel_CommandEndEvent</code> after processing a cancellation request. This event closes the command lifecycle.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=core_wakeup_event><code>CORE_Wakeup_Event</code><a href=#core_wakeup_event class=hash-link aria-label="Direct link to core_wakeup_event" title="Direct link to core_wakeup_event" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <em>(none, unsolicited)</em></p>
+<p><strong>Summary:</strong> Indicates that the radio woke from sleep for the next scheduled operation.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_handle</code><td>Unsigned Integer<td>—<td>Handle of the next TX or RX command the radio woke for.</table>
+<p><strong>Description:</strong> Core emits <code>CORE_Wakeup_Event</code> when it wakes the radio from sleep to execute a scheduled operation. The event is emitted only when the radio actually transitioned to sleep during a skip and is now waking, not merely when sleep was authorized. It is not emitted for the initial radio bring-up. This event is unsolicited. It lets the layer above Core track radio duty cycling.</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/spec-core/core-configuration-service><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>Core Configuration Service</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/spec-core/core-overview><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>Core Overview</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#introduction class="table-of-contents__link toc-highlight">Introduction</a><ul><li><a href=#related-documents class="table-of-contents__link toc-highlight">Related Documents</a></ul><li><a href=#commands class="table-of-contents__link toc-highlight">Commands</a><ul><li><a href=#core_schedule_timeframe_command class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Timeframe_Command</code></a><li><a href=#core_schedule_tx_command class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Tx_Command</code></a><li><a href=#core_schedule_rx_command class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Rx_Command</code></a><li><a href=#core_schedule_skip_command class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Skip_Command</code></a><li><a href=#core_cancel_command class="table-of-contents__link toc-highlight"><code>CORE_Cancel_Command</code></a></ul><li><a href=#events class="table-of-contents__link toc-highlight">Events</a><ul><li><a href=#core_commandstatusevent class="table-of-contents__link toc-highlight"><code>CORE_CommandStatusEvent</code></a><li><a href=#core_schedule_timeframe_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Timeframe_CommandEndEvent</code></a><li><a href=#core_schedule_tx_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Tx_CommandEndEvent</code></a><li><a href=#core_schedule_rx_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Rx_CommandEndEvent</code></a><li><a href=#core_schedule_skip_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Schedule_Skip_CommandEndEvent</code></a><li><a href=#core_cancel_commandendevent class="table-of-contents__link toc-highlight"><code>CORE_Cancel_CommandEndEvent</code></a><li><a href=#core_wakeup_event class="table-of-contents__link toc-highlight"><code>CORE_Wakeup_Event</code></a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Specification</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs/spec-core/introduction>Core Services</a><li class=footer__item><a class=footer__link-item href=/docs/spec-rail/introduction>RAL Services</a><li class=footer__item><a class=footer__link-item href=/docs/glossary>Glossary</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>OpenSTX</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class=footer__link-item>About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class=footer__link-item>Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class=footer__link-item>Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class=footer__link-item>Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org target=_blank rel="noopener noreferrer" class=footer__link-item>openstxfoundation.org<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/openstx/public-specification target=_blank rel="noopener noreferrer" class=footer__link-item>public-specification (GitHub)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class=footer__link-item>Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>OpenSTX is hosted at the Linux Foundation. Copyright © 2026 The Linux Foundation. This draft specification is not an approved release.</div></div></div></footer></div></body>

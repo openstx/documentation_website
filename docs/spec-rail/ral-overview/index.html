@@ -1,0 +1,261 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-spec-rail/ral-overview" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>Overview | OpenSTX Specification</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true name=twitter:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true property=og:url content=https://docs.openstxfoundation.org/docs/spec-rail/ral-overview /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="Overview | OpenSTX Specification"/><meta data-rh=true name=description content="This section describes the main features of the Radio Abstraction Layer (RAL), how commands transition the RAL between states, and how the RAL manages radio operations and the lifecycle of commands."/><meta data-rh=true property=og:description content="This section describes the main features of the Radio Abstraction Layer (RAL), how commands transition the RAL between states, and how the RAL manages radio operations and the lifecycle of commands."/><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://docs.openstxfoundation.org/docs/spec-rail/ral-overview /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-overview hreflang=en /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-overview hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/category/ral-services","name":"RAL Services","position":1},{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/spec-rail/ral-overview","name":"Overview","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.55f33b09.css /><script src=/assets/js/runtime~main.f4cd4d72.js defer></script><script src=/assets/js/main.b3cd52e2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-d58")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/openstx-logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">OpenSTX</b></a><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/category/core-services>Specification</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/core-services><span class=categoryLinkLabel_W154>Core Services</span></a><button aria-label="Expand sidebar category 'Core Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/general-description><span class=categoryLinkLabel_W154>General Description</span></a><button aria-label="Expand sidebar category 'General Description'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/ral-services><span class=categoryLinkLabel_W154>RAL Services</span></a><button aria-label="Collapse sidebar category 'RAL Services'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/introduction><span class=linkLabel_WmDU>Introduction</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-buffer-manager-service><span class=linkLabel_WmDU>RAL Buffer Manager Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-config-service><span class=linkLabel_WmDU>RAL Configuration Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-execution-service><span class=linkLabel_WmDU>RAL Execution Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/spec-rail/ral-overview><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-security-service><span class=linkLabel_WmDU>RAL Security Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-time-service><span class=linkLabel_WmDU>RAL Time Service</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/security><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/glossary><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/ral-services><span>RAL Services</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>Overview</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class=admonitionHeading_Gvgb><span class=admonitionIcon_Rf37><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>Draft specification — subject to change.</div><div class=admonitionContent_BuS1>This is not an approved release.</div></div><div class="theme-doc-markdown markdown"><header><h1>Overview</h1></header>
+<p>This section describes the main features of the Radio Abstraction Layer (RAL), how commands transition the RAL between states, and how the RAL manages radio operations and the lifecycle of commands.</p>
+<p>The operational model described here underpins the normative behavior specified in RAL Services, explaining the terminology used in command descriptions.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral-states>RAL States<a href=#ral-states class=hash-link aria-label="Direct link to RAL States" title="Direct link to RAL States" translate=no>​</a></h2>
+<p>The RAL operates in one of four states:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>State<th>Description<tbody><tr><td><code>SLEEP</code><td>Initial RAL state. Some commands cannot be accepted or executed, notably including commands that schedule receptions and transmissions.<tr><td><code>IDLE</code><td>The RAL is ready to execute scheduling commands, but no radio operation is scheduled or ongoing.<tr><td><code>PENDING</code><td>The RAL is tracking a pending radio operation that will run in the future.<tr><td><code>RUNNING</code><td>A radio operation is actively in progress (including ramp-up time, transmission or reception, and ramp-down time).</table>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=active-command>Active Command<a href=#active-command class=hash-link aria-label="Direct link to Active Command" title="Direct link to Active Command" translate=no>​</a></h2>
+<p>When the RAL accepts a command that schedules a transmission or a reception, that command becomes the "active command", and the RAL transitions to the <code>PENDING</code> state. The RAL tracks the active command and its associated parameters internally until the command lifecycle concludes, at which point the RAL returns to its <code>IDLE</code> state and is ready to accept a new prospective active command.
+A RAL in <code>PENDING</code> or <code>RUNNING</code> state always tracks an active command.</p>
+<p>At most one active command exists at any time. A new command that schedules a transmission or a reception can only be accepted when no active command exists and the RAL is in <code>IDLE</code> state.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=state-transitions>State Transitions<a href=#state-transitions class=hash-link aria-label="Direct link to State Transitions" title="Direct link to State Transitions" translate=no>​</a></h2>
+<p>The following diagram shows the RAL state transitions. Every transition is driven by a command, a radio event, or an error condition.</p>
+<div class="language-mermaid codeBlockContainer_Ckt0 theme-code-block" style=--prism-color:#F8F8F2;--prism-background-color:#282A36><div class=codeBlockContent_QJqH><pre tabindex=0 class="prism-code language-mermaid codeBlock_bY9V thin-scrollbar" style=color:#F8F8F2;background-color:#282A36><code class=codeBlockLines_e6Vv><div class=token-line style=color:#F8F8F2><span class="token plain">flowchart TD</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    SLEEP["SLEEP"]</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    IDLE["IDLE"]</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    PENDING["PENDING"]</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    RUNNING["RUNNING"]</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain" style=display:inline-block></span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    SLEEP -->|"RAL_State_Wakeup_Command"| IDLE</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    IDLE -->|"RAL_State_Sleep_Command"| SLEEP</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    IDLE -->|"TX/RX command </span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    accepted"| PENDING</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    PENDING -->|"Radio operation starts"| RUNNING</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    PENDING -->|"Active command </span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    lifecycle closed"| IDLE</span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    RUNNING -->|"Active command </span><br/></div><div class=token-line style=color:#F8F8F2><span class="token plain">    lifecycle closed"| IDLE</span><br/></div></code></pre></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>From<th>To<th>Trigger<th>Description<tbody><tr><td><code>SLEEP</code><td><code>IDLE</code><td><code>RAL_State_Wakeup_Command</code><td>The RAL ensures the radio is operational and ready to accept commands that schedule transmissions or receptions.<tr><td><code>IDLE</code><td><code>SLEEP</code><td><code>RAL_State_Sleep_Command</code><td>The RAL may cause the radio hardware to enter a power-saving mode.<tr><td><code>IDLE</code><td><code>PENDING</code><td>Accepted <code>RAL_Tx_Schedule_Command</code> <code>RAL_Rx_Schedule_Command</code><td>The RAL accepts a triggering command, which becomes the active command. The RAL transitions to <code>PENDING</code> and prepares the radio for the scheduled operation.<tr><td><code>PENDING</code><td><code>RUNNING</code><td>The radio operation associated to the active starts<td>The scheduled point in time is reached and the radio begins transmitting or receiving.<tr><td><code>PENDING</code><td><code>IDLE</code><td>Active command lifecycle closed<td>The scheduled operation is concluded before it starts on air, due to an error condition or a cancellation request. The RAL emits the corresponding terminal event, closing the command lifecycle. Refer to the command description for the normative behavior.<tr><td><code>RUNNING</code><td><code>IDLE</code><td>Active command lifecycle closed<td>The radio operation concludes on air, whether successfully, due to an error condition, or due to a cancellation request. The RAL emits the corresponding terminal event, closing the command lifecycle. Refer to the command description for the normative behavior.</table>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=command-cancellation>Command Cancellation<a href=#command-cancellation class=hash-link aria-label="Direct link to Command Cancellation" title="Direct link to Command Cancellation" translate=no>​</a></h2>
+<p>The active command may be cancelled at the request of the upper layer.</p>
+<p>In the normative behavior of command descriptions, the terms "cancel" and "abort" describe distinct aspects of terminating an activity:</p>
+<ul>
+<li class="">"Cancel" applies to the active command. An upper layer issues <code>RAL_Cancel_Command</code> to request cancellation of the active command.</li>
+<li class="">"Abort" applies to the radio operation itself. When the active command is cancelled, the RAL aborts the scheduled or ongoing radio operation. However, the RAL may also abort radio operations autonomously due to error conditions.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=radio-time>Radio Time<a href=#radio-time class=hash-link aria-label="Direct link to Radio Time" title="Direct link to Radio Time" translate=no>​</a></h2>
+<p>The RAL maintains an internal tick counter incrementing at a frequency <code>RAL_TICK_FREQ_HZ</code>. All RAL timestamps are derived from this counter. The counter is a non-negative integer of <code>RAL_TICK_COUNTER_WIDTH</code> bits (RAL-specific, constant per RAL instance), wrapping around to <code>0</code> after reaching <code>2^RAL_TICK_COUNTER_WIDTH - 1</code>. It is monotonically non-decreasing except upon wraparound, and as long as the RAL remains in a state other than <code>SLEEP</code>.</p>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ralinstant><code>RalInstant</code><a href=#ralinstant class=hash-link aria-label="Direct link to ralinstant" title="Direct link to ralinstant" translate=no>​</a></h3>
+<p><code>RalInstant</code> is a parameter type used for RAL timestamps. It is an Unsigned Integer of width greater or equal <code>RAL_TICK_COUNTER_WIDTH</code> bits, whose valid range is <code>0</code> to <code>2^RAL_TICK_COUNTER_WIDTH - 1</code>.</p>
+<p>Since all RAL timestamps are based on the internal tick counter, <code>RalInstant</code> values may be affected by wraparound.
+Consider two valid <code>RalInstant</code> values <code>t_1</code> and <code>t_2</code>, where <code>t_2</code> refers to a point in time in the future w.r.t. <code>t_1</code>. <code>t_2</code> may be lower than <code>t_1</code> due to wraparound. The upper layer is responsible for handling wraparound. The <code>RAL_Time_Instant_Diff_Command</code> provides wraparound-safe difference computation.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ralinstantdiff><code>RalInstantDiff</code><a href=#ralinstantdiff class=hash-link aria-label="Direct link to ralinstantdiff" title="Direct link to ralinstantdiff" translate=no>​</a></h3>
+<p><code>RalInstantDiff</code> is a parameter type used for time intervals between RAL timestamps. It is a (signed) Integer of width greater or equal <code>RAL_TICK_COUNTER_WIDTH</code> bits, whose valid range is <code>-2^(RAL_TICK_COUNTER_WIDTH - 1)</code> to <code>2^(RAL_TICK_COUNTER_WIDTH - 1) - 1</code>.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=packetbuffer><code>PacketBuffer</code><a href=#packetbuffer class=hash-link aria-label="Direct link to packetbuffer" title="Direct link to packetbuffer" translate=no>​</a></h2>
+<p>The RAL defines the <code>PacketBuffer</code> abstraction to represent the memory space used for transmitting or receiving the PSDU of a single transmission unit.</p>
+<p>Each <code>PacketBuffer</code> is characterized by the following parameters:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>buffer_type</code><td>Enumeration<td><code>BUFFER_TYPE_GENERAL_PURPOSE</code>, <code>BUFFER_TYPE_TIGHTLY_COUPLED</code><td>Specifies the type of the buffer, as defined in <a href=#buffer-specializations class="">§Buffer Specializations</a>.<tr><td><code>buffer_data</code><td>Octet Buffer<td>—<td>Octet region in memory used for the buffer's data, including the PSDU, as well as headroom and tailroom reserved for the RAL.<tr><td><code>buffer_size</code><td>Unsigned Integer<td>—<td>Size of <code>buffer_data</code>, i.e., the number of octets the buffer is able to store.<tr><td><code>psdu</code><td>Octet Buffer<td>—<td>Reference to the PSDU within <code>buffer_data</code>.<tr><td><code>psdu_length</code><td><code>PSDULength</code><td>as defined in <a href=#psdulength class="">§PSDULength</a><td>Length of the PSDU, excluding the MIC.<tr><td><code>psdu_region_unsecured</code><td>Octet Buffer<td>—<td>Reference to the octet region <code>BUFFER_REGION_UNSECURED</code> within the PSDU. Defined only if a non-zero size for the region has been declared through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>.<tr><td><code>psdu_region_unsecured_size</code><td>Unsigned Integer<td>—<td>Size of the PSDU octet region <code>BUFFER_REGION_UNSECURED</code>.<tr><td><code>psdu_region_authenticated</code><td>Octet Buffer<td>—<td>Reference to the octet region <code>BUFFER_REGION_AUTHENTICATED</code> within the PSDU. Defined only if a non-zero size for the region has been declared through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>.<tr><td><code>psdu_region_authenticated_size</code><td>Unsigned Integer<td>—<td>Size of the PSDU octet region <code>BUFFER_REGION_AUTHENTICATED</code>.<tr><td><code>psdu_region_encrypted</code><td>Octet Buffer<td>—<td>Reference to the octet region <code>BUFFER_REGION_ENCRYPTED</code> within the PSDU. Defined only if a non-zero size for the region has been declared through <a class="" href=/docs/spec-rail/ral-buffer-manager-service#ral_buffer_configure_regions_command>§RAL_Buffer_Configure_Regions_Command</a>.<tr><td><code>psdu_region_encrypted_size</code><td>Unsigned Integer<td>—<td>Size of the PSDU octet region <code>BUFFER_REGION_ENCRYPTED</code>.</table>
+<p>The <a class="" href=/docs/spec-rail/ral-buffer-manager-service>Buffer Manager Document</a> details the rules governing the lifecycle and behavior of <code>PacketBuffers</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=psdulength><code>PSDULength</code><a href=#psdulength class=hash-link aria-label="Direct link to psdulength" title="Direct link to psdulength" translate=no>​</a></h3>
+<!-- -->
+<p><code>PSDULength</code> is an unsigned integer limited by the PHY-specific maximal PSDU length: <code>PHY_MAX_PSDU_LENGTH</code>.</p>
+<p><code>psdu_length</code> includes the FCS, where present, and excludes the MIC. In length expressions, <code>F</code> is <a class="" href=/docs/spec-rail/ral-config-service#generic-configuration-attributes>§fcsLength</a>, the number of FCS octets the PSDU carries. The three regions cover <code>psdu_length - F</code> octets; the FCS requires no caller commit. Restoration applies only to these regions. The complete on-air PSDU length is <code>psdu_length + M</code>, where <code>M</code> is the current <code>micSize</code> for a protected partition and zero otherwise. This length MUST NOT exceed <code>PHY_MAX_PSDU_LENGTH</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=buffer-specializations>Buffer Specializations<a href=#buffer-specializations class=hash-link aria-label="Direct link to Buffer Specializations" title="Direct link to Buffer Specializations" translate=no>​</a></h3>
+<p>The RAL distinguishes the following <code>PacketBuffer</code> specializations:</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Abbreviation<th><code>buffer_type</code> enum value<th>Description<tbody><tr><td><code>GeneralPurposePacketBuffer</code><td>GPPB<td><code>BUFFER_TYPE_GENERAL_PURPOSE</code><td>Buffer that is represented in RAM and encoded with the <code>buffer_type</code> enum value. Its data can be accessed directly through the <code>buffer_data</code> parameter. The support for GPPB is mandatory for all RAL implementations.<tr><td><code>TightlyCoupledPacketBuffer</code><td>TCPB<td><code>BUFFER_TYPE_TIGHTLY_COUPLED</code><td>Represents a buffer located close to the radio hardware, for which the associated <code>buffer_data</code> serves as a staging region (or "shadow buffer"). A TCPB can be implemented in a RAL-specific way, potentially enabling performance benefits for selected platforms. The support for TCPBs is optional for all RAL implementations.</table>
+<p>Detailed descriptions of buffer specializations are located in the <a class="" href=/docs/spec-rail/ral-buffer-manager-service#packet-buffer-specializations>Buffer Manager</a> document.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral-services>RAL Services<a href=#ral-services class=hash-link aria-label="Direct link to RAL Services" title="Direct link to RAL Services" translate=no>​</a></h2>
+<!-- -->
+<p>Table <a href=#table-ral-specification-contents class="">RAL Services</a> summarizes each service. Each service has a dedicated section where all its primitives (commands and events) are presented.</p>
+<!-- -->
+<p><a name=table-ral-specification-contents class=""></a></p>
+<p><strong>Table</strong>: Specification Contents.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Component<th>Description<th>Version<tbody><tr><td><a class="" href=/docs/spec-rail/ral-execution-service>Execution Service</a><td>Schedule radio operations, providing the functionalities necessary to meet real-time constraints.<td>0.0.1<tr><td><a class="" href=/docs/spec-rail/ral-time-service>Time Service</a><td>Access the current radio timestamp and perform basic transformations on it.<td>0.0.1<tr><td><a class="" href=/docs/spec-rail/ral-config-service>Configuration Service</a><td>Read and modify the radio configuration.<td>0.0.1<tr><td><a class="" href=/docs/spec-rail/ral-buffer-manager-service>Buffer Manager Service</a><td>Manage and use packet buffers.<td>0.0.1<tr><td><a class="" href=/docs/spec-rail/ral-security-service>Security Service</a><td>Install and remove the key, and draw the IV seed.<td>0.0.1</table></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/spec-rail/ral-execution-service><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>RAL Execution Service</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/spec-rail/ral-security-service><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>RAL Security Service</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#ral-states class="table-of-contents__link toc-highlight">RAL States</a><li><a href=#active-command class="table-of-contents__link toc-highlight">Active Command</a><li><a href=#state-transitions class="table-of-contents__link toc-highlight">State Transitions</a><li><a href=#command-cancellation class="table-of-contents__link toc-highlight">Command Cancellation</a><li><a href=#radio-time class="table-of-contents__link toc-highlight">Radio Time</a><ul><li><a href=#ralinstant class="table-of-contents__link toc-highlight"><code>RalInstant</code></a><li><a href=#ralinstantdiff class="table-of-contents__link toc-highlight"><code>RalInstantDiff</code></a></ul><li><a href=#packetbuffer class="table-of-contents__link toc-highlight"><code>PacketBuffer</code></a><ul><li><a href=#psdulength class="table-of-contents__link toc-highlight"><code>PSDULength</code></a><li><a href=#buffer-specializations class="table-of-contents__link toc-highlight">Buffer Specializations</a></ul><li><a href=#ral-services class="table-of-contents__link toc-highlight">RAL Services</a></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Specification</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs/spec-core/introduction>Core Services</a><li class=footer__item><a class=footer__link-item href=/docs/spec-rail/introduction>RAL Services</a><li class=footer__item><a class=footer__link-item href=/docs/glossary>Glossary</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>OpenSTX</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class=footer__link-item>About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class=footer__link-item>Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class=footer__link-item>Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class=footer__link-item>Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org target=_blank rel="noopener noreferrer" class=footer__link-item>openstxfoundation.org<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/openstx/public-specification target=_blank rel="noopener noreferrer" class=footer__link-item>public-specification (GitHub)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class=footer__link-item>Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>OpenSTX is hosted at the Linux Foundation. Copyright © 2026 The Linux Foundation. This draft specification is not an approved release.</div></div></div></footer></div></body>

@@ -1,0 +1,238 @@
+<!doctype html><html lang=en dir=ltr class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-spec-rail/ral-config-service" data-has-hydrated=false><head><meta charset=UTF-8><meta name=generator content="Docusaurus v3.10.2"><title data-rh=true>RAL Configuration Service | OpenSTX Specification</title><meta data-rh=true name=viewport content="width=device-width, initial-scale=1.0"/><meta data-rh=true name=twitter:card content=summary_large_image /><meta data-rh=true property=og:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true name=twitter:image content=https://docs.openstxfoundation.org/img/openstx-logo.svg /><meta data-rh=true property=og:url content=https://docs.openstxfoundation.org/docs/spec-rail/ral-config-service /><meta data-rh=true property=og:locale content=en /><meta data-rh=true name=docusaurus_locale content=en /><meta data-rh=true name=docsearch:language content=en /><meta data-rh=true name=docusaurus_version content=current /><meta data-rh=true name=docusaurus_tag content=docs-default-current /><meta data-rh=true name=docsearch:version content=current /><meta data-rh=true name=docsearch:docusaurus_tag content=docs-default-current /><meta data-rh=true property=og:title content="RAL Configuration Service | OpenSTX Specification"/><meta data-rh=true name=description content=Introduction /><meta data-rh=true property=og:description content=Introduction /><link data-rh=true rel=icon href=/img/favicon.ico /><link data-rh=true rel=canonical href=https://docs.openstxfoundation.org/docs/spec-rail/ral-config-service /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-config-service hreflang=en /><link data-rh=true rel=alternate href=https://docs.openstxfoundation.org/docs/spec-rail/ral-config-service hreflang=x-default /><script data-rh=true type=application/ld+json>{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/category/ral-services","name":"RAL Services","position":1},{"@type":"ListItem","item":"https://docs.openstxfoundation.org/docs/spec-rail/ral-config-service","name":"RAL Configuration Service","position":2}]}</script><link rel=stylesheet href=/assets/css/styles.55f33b09.css /><script src=/assets/js/runtime~main.f4cd4d72.js defer></script><script src=/assets/js/main.b3cd52e2.js defer></script></head><body><svg style="display: none;"><defs>
+<symbol id=theme-svg-external-link viewBox="0 0 24 24"><path fill=currentColor d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme-d58")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{for(var[t,e]of new URLSearchParams(window.location.search).entries())if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id=__docusaurus><link rel=preload as=image href=/img/openstx-logo.svg /><div role=region aria-label="Skip to main content"><a class=skipToContent_fXgn href=#__docusaurus_skipToContent_fallback>Skip to main content</a></div><nav aria-label=Main class="theme-layout-navbar navbar navbar--fixed-top"><div class=navbar__inner><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded=false class="navbar__toggle clean-btn" type=button><svg width=30 height=30 viewBox="0 0 30 30" aria-hidden=true><path stroke=currentColor stroke-linecap=round stroke-miterlimit=10 stroke-width=2 d="M4 7h22M4 15h22M4 23h22"/></svg></button><a class=navbar__brand href=/><div class=navbar__logo><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--light_NVdE"/><img src=/img/openstx-logo.svg alt="OpenSTX logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"/></div><b class="navbar__title text--truncate">OpenSTX</b></a><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class="navbar__item navbar__link">Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a aria-current=page class="navbar__item navbar__link navbar__link--active" href=/docs/category/core-services>Specification</a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type=button disabled title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill=currentColor d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill=currentColor d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"/></svg><svg viewBox="0 0 24 24" width=24 height=24 aria-hidden=true class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill=currentColor d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"/></svg></button></div><div class=navbarSearchContainer_Bca1></div></div></div><div role=presentation class=navbar-sidebar__backdrop></div></nav><div id=__docusaurus_skipToContent_fallback class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class=docsWrapper_hBAB><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type=button></button><div class=docRoot_UBD9><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class=sidebarViewport_aRkj><div class=sidebar_njMd><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/core-services><span class=categoryLinkLabel_W154>Core Services</span></a><button aria-label="Expand sidebar category 'Core Services'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/general-description><span class=categoryLinkLabel_W154>General Description</span></a><button aria-label="Expand sidebar category 'General Description'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" href=/docs/category/ral-services><span class=categoryLinkLabel_W154>RAL Services</span></a><button aria-label="Collapse sidebar category 'RAL Services'" aria-expanded=true type=button class="clean-btn menu__caret"></button></div><ul class=menu__list><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/introduction><span class=linkLabel_WmDU>Introduction</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-buffer-manager-service><span class=linkLabel_WmDU>RAL Buffer Manager Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current=page tabindex=0 href=/docs/spec-rail/ral-config-service><span class=linkLabel_WmDU>RAL Configuration Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-execution-service><span class=linkLabel_WmDU>RAL Execution Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-overview><span class=linkLabel_WmDU>Overview</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-security-service><span class=linkLabel_WmDU>RAL Security Service</span></a><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class=menu__link tabindex=0 href=/docs/spec-rail/ral-time-service><span class=linkLabel_WmDU>RAL Time Service</span></a></ul><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/security><span class=categoryLinkLabel_W154>Security</span></a><button aria-label="Expand sidebar category 'Security'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class=menu__list-item-collapsible><a class="categoryLink_byQd menu__link menu__link--sublist" href=/docs/category/glossary><span class=categoryLinkLabel_W154>Glossary</span></a><button aria-label="Expand sidebar category 'Glossary'" aria-expanded=false type=button class="clean-btn menu__caret"></button></div></ul></nav></div></div></aside><main class=docMainContainer_TBSr><div class="container padding-top--md padding-bottom--lg"><div class=row><div class="col docItemCol_VOVn"><div class=docItemContainer_Djhp><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label=Breadcrumbs><ul class=breadcrumbs><li class=breadcrumbs__item><a aria-label="Home page" class=breadcrumbs__link href=/><svg viewBox="0 0 24 24" class=breadcrumbHomeIcon_YNFT><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill=currentColor /></svg></a><li class=breadcrumbs__item><a class=breadcrumbs__link href=/docs/category/ral-services><span>RAL Services</span></a><li class="breadcrumbs__item breadcrumbs__item--active"><span class=breadcrumbs__link>RAL Configuration Service</span></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type=button class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-admonition theme-admonition-caution admonition_xJq3 alert alert--warning"><div class=admonitionHeading_Gvgb><span class=admonitionIcon_Rf37><svg viewBox="0 0 16 16"><path fill-rule=evenodd d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg></span>Draft specification — subject to change.</div><div class=admonitionContent_BuS1>This is not an approved release.</div></div><div class="theme-doc-markdown markdown"><header><h1>RAL Configuration Service</h1></header>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=introduction>Introduction<a href=#introduction class=hash-link aria-label="Direct link to Introduction" title="Direct link to Introduction" translate=no>​</a></h2>
+<p>The following subsection describes the primitives that allow to read and modify radio configuration attributes.
+The normative behavior is defined in sections <a href=#commands class="">Commands</a> and <a href=#events class="">Events</a>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=related-documents>Related Documents<a href=#related-documents class=hash-link aria-label="Direct link to Related Documents" title="Direct link to Related Documents" translate=no>​</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Document<th>Description<tbody><tr><td><a class="" href=/docs/spec-rail/introduction>Introduction</a><td>Introduction to the RAL Services</table>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=commands>Commands<a href=#commands class=hash-link aria-label="Direct link to Commands" title="Direct link to Commands" translate=no>​</a></h2>
+<p><a name=ral-config-service-ral_conf_set_cmd class=""></a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_conf_set_cmd><code>RAL_Conf_Set_Cmd</code><a href=#ral_conf_set_cmd class=hash-link aria-label="Direct link to ral_conf_set_cmd" title="Direct link to ral_conf_set_cmd" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Updates the requested radio configuration attribute to the supplied value.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>attribute</code><td>Enumeration<td>Any supported configuration attribute (see <a href=#configuration-attributes class="">Configuration Attributes</a>).<td>Identifies the configuration attribute to update.<tr><td><code>value</code><td>Various<td>Values valid for the selected <code>attribute</code><td>Provides the new value for the selected configuration attribute.</table>
+<p><strong>Event Pattern:</strong> Single-Response (<code>RAL_Conf_Set_Cmd -> RAL_Conf_Set_CmdEndEvt</code>)</p>
+<p><strong>Description:</strong></p>
+<p><code>RAL_Conf_Set_Cmd</code> requests a configuration change for the indicated attribute. The RAL MUST validate the requested value against the constraints of the selected attribute before applying any state change.</p>
+<p>The RAL MUST emit exactly one <code>RAL_Conf_Set_CmdEndEvt</code> for each <code>RAL_Conf_Set_Cmd</code> processed.</p>
+<p>If an action is <code>ACTIVE</code> or <code>PENDING</code>, the RAL MUST emit <code>RAL_Conf_Set_CmdEndEvt</code> immediately, with <code>command_status = NOT_ALLOWED</code>, and perform no other activity.</p>
+<p>At most one <code>RAL_Conf_Set_Cmd</code> may be active at any time. If a second <code>RAL_Conf_Set_Cmd</code> is issued before the first one has produced its terminal event, the RAL MUST emit <code>RAL_Conf_Set_CmdEndEvt</code> for the second <code>RAL_Conf_Set_Cmd</code> immediately, with <code>command_status = NOT_ALLOWED</code>, and perform no other activity.</p>
+<p>If the indicated <code>attribute</code> is not supported, the RAL MUST emit <code>RAL_Conf_Set_CmdEndEvt</code> immediately, with <code>command_status = NOT_ALLOWED</code>, and perform no other activity.</p>
+<p>If validation fails, the RAL MUST generate <code>RAL_Conf_Set_CmdEndEvt</code> with <code>command_status = INVALID_VALUE</code> and MUST take no other action.</p>
+<p><a name=ral-config-service-ral_conf_get_cmd class=""></a></p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_conf_get_cmd><code>RAL_Conf_Get_Cmd</code><a href=#ral_conf_get_cmd class=hash-link aria-label="Direct link to ral_conf_get_cmd" title="Direct link to ral_conf_get_cmd" translate=no>​</a></h3>
+<p><strong>Summary:</strong> Reads the current value of the requested radio configuration attribute.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>attribute</code><td>Enumeration<td>Any supported configuration attribute (see <a href=#configuration-attributes class="">Configuration Attributes</a>).<td>Identifies the configuration attribute to read.</table>
+<p><strong>Event Pattern:</strong> Single-Response (<code>RAL_Conf_Get_Cmd -> RAL_Conf_Get_CmdEndEvt</code>)</p>
+<p><strong>Description:</strong></p>
+<p><code>RAL_Conf_Get_Cmd</code> requests the current value of the selected configuration attribute (without modifying the radio state).</p>
+<p>The RAL MUST emit exactly one <code>RAL_Conf_Get_CmdEndEvt</code> for each <code>RAL_Conf_Get_Cmd</code> processed.</p>
+<p>If the RAL state (see <a class="" href=/docs/spec-rail/ral-overview#ral-states>§RAL States</a>) is <code>PENDING</code> or <code>RUNNING</code>, the RAL MUST emit <code>RAL_Conf_Set_CmdEndEvt</code> immediately, with <code>status = NOT_ALLOWED</code>, and perform no other activity.</p>
+<p>At most one <code>RAL_Conf_Get_Cmd</code> may be active at any time. If a second <code>RAL_Conf_Get_Cmd</code> is issued before the first one has produced its terminal event, the RAL MUST emit <code>RAL_Conf_Get_CmdEndEvt</code> for the second <code>RAL_Conf_Get_Cmd</code> immediately, with <code>command_status = NOT_ALLOWED</code>, and perform no other activity.</p>
+<p>If the indicated <code>attribute</code> is not supported, the RAL MUST emit <code>RAL_Conf_Get_CmdEndEvt</code> immediately, with <code>command_status = NOT_ALLOWED</code>, and perform no other activity.</p>
+<p>If validation fails, the RAL MUST generate <code>RAL_Conf_Get_CmdEndEvt</code> with <code>command_status = INVALID_VALUE</code> and MUST take no other action.</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=events>Events<a href=#events class=hash-link aria-label="Direct link to Events" title="Direct link to Events" translate=no>​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_conf_set_cmdendevt><code>RAL_Conf_Set_CmdEndEvt</code><a href=#ral_conf_set_cmdendevt class=hash-link aria-label="Direct link to ral_conf_set_cmdendevt" title="Direct link to ral_conf_set_cmdendevt" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Conf_Set_Cmd</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a configuration update request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>NOT_ALLOWED</code>, <code>INVALID_VALUE</code><td>Outcome of the configuration update request.<tr><td><code>attribute</code><td>Enumeration<td>Any supported configuration attribute (see <a href=#configuration-attributes class="">Configuration Attributes</a>).<td>Echoes the attribute targeted by the command.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Conf_Set_CmdEndEvt</code> after validating and either applying or rejecting the requested write on a configuration attribute.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=ral_conf_get_cmdendevt><code>RAL_Conf_Get_CmdEndEvt</code><a href=#ral_conf_get_cmdendevt class=hash-link aria-label="Direct link to ral_conf_get_cmdendevt" title="Direct link to ral_conf_get_cmdendevt" translate=no>​</a></h3>
+<p><strong>Soliciting command:</strong> <code>RAL_Conf_Get_Cmd</code></p>
+<p><strong>Summary:</strong> Reports the final outcome of a configuration read request.</p>
+<p><strong>Parameters:</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Name<th>Type<th>Valid Range<th>Description<tbody><tr><td><code>command_status</code><td>Enumeration<td><code>SUCCESS</code>, <code>NOT_ALLOWED</code><td>Outcome of the configuration read request.<tr><td><code>attribute</code><td>Enumeration<td>Any supported configuration attribute (see <a href=#configuration-attributes class="">Configuration Attributes</a>).<td>Echoes the attribute targeted by the command.<tr><td><code>value</code><td>Various<td>Present only when <code>command_status</code> is <code>SUCCESS</code>.<td>Current value of the requested configuration attribute.</table>
+<p><strong>Description:</strong> The RAL emits <code>RAL_Conf_Get_CmdEndEvt</code> after reading or rejecting the requested read on a configuration attribute. This event provides the retrieved value when the read succeeds.</p>
+<!-- -->
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id=configuration-attributes>Configuration Attributes<a href=#configuration-attributes class=hash-link aria-label="Direct link to Configuration Attributes" title="Direct link to Configuration Attributes" translate=no>​</a></h2>
+<p>Generic and PHY-specific attributes are presented below.
+Unless otherwise noted, the following attributes match the PHY PIB attributes of the same name in IEEE 802.15.4-2024 (12.3.2, 12.3.7, 12.3.12, from page 600 onwards).
+Different semantics, type or value ranges may be specified.</p>
+<!-- -->
+<p>Note that, among IEEE PHY PIB attributes, only those listed here are to be considered OpenSTX radio configuration attributes.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=notation>Notation<a href=#notation class=hash-link aria-label="Direct link to Notation" title="Direct link to Notation" translate=no>​</a></h3>
+<p>Attributes that are introduced by OpenSTX, and are not among IEEE PHY PIB attributes, are denoted with a "+" mark.<br/>
+Read-only attributes are denoted with a "†" mark.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=generic-configuration-attributes>Generic Configuration Attributes<a href=#generic-configuration-attributes class=hash-link aria-label="Direct link to Generic Configuration Attributes" title="Direct link to Generic Configuration Attributes" translate=no>​</a></h3>
+<ul>
+<li class="">
+<p><em>phyBroadcastTxPower</em></p>
+</li>
+<li class="">
+<p><em>phyCurrentChannelInfo</em></p>
+</li>
+<li class="">
+<p><em>phyMaxPacketSize</em></p>
+</li>
+<li class="">
+<p><em>phyMaxTxPower</em> †</p>
+</li>
+<li class="">
+<p><em>phyRxRmarkerOffset</em></p>
+</li>
+<li class="">
+<p><em>phyTxPower</em></p>
+</li>
+<li class="">
+<p><em>phyTxRmarkerOffset</em></p>
+</li>
+<li class="">
+<p><em>phyCurrentCode</em></p>
+</li>
+<li class="">
+<p><em>bufferCapacityTCPB</em> +† — total number of octets available for the allocation of <code>TightlyCopledPacketBuffers</code> (TCPBs), as defined in <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a> and <a class="" href=/docs/spec-rail/ral-buffer-manager-service>§Buffer Management</a>. MUST be 0 if the RAL does not support TCPBs.</p>
+</li>
+<li class="">
+<p><em>bufferSpaceMargin</em> +† — total number of octets that constitute the RAL-specific headroom and tailroom within a <a class="" href=/docs/spec-rail/ral-overview#packetbuffer>§Packet Buffer</a>. The RAL fixes it, since only the RAL knows the framing its PHY adds and the MIC its cipher inserts. On a RAL that has a cipher, it includes 16 octets for the MIC, the largest <code>micSize</code>. The FCS is already counted in <code>psdu_length</code>.</p>
+</li>
+<li class="">
+<p><em>fcsLength</em> +† — number of octets of the frame check sequence (FCS) that ends the PSDU on the configured PHY, and 0 where the PSDU carries none (see <a class="" href=/docs/spec-rail/ral-overview#psdulength>§PSDULength</a>).</p>
+</li>
+<li class="">
+<p><em>micSize</em> + — number of octets of the MIC the RAL's cipher computes: 4, 8 or 16 on a RAL that has a cipher, and 0 on a RAL that has none (see <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>). On a RAL that has a cipher, it reads 4 until written. A write of any other value, and every write on a RAL that has no cipher, ends with <code>command_status = INVALID_VALUE</code>.</p>
+</li>
+<li class="">
+<p><em>nonceSize</em> +† — number of octets that constitute the nonce used in cryptographic operations: 13 on a RAL that has a cipher, and 0 on a RAL that has none (see <a class="" href=/docs/spec-rail/ral-security-service#the-cipher>§RAL Security Service</a>).</p>
+</li>
+<li class="">
+<p><em>radioTimeFrequency</em> +† — frequency of the radio time tick, expressed in hertz.</p>
+</li>
+</ul>
+<!-- -->
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id=uwb-configuration-attributes>UWB Configuration Attributes<a href=#uwb-configuration-attributes class=hash-link aria-label="Direct link to UWB Configuration Attributes" title="Direct link to UWB Configuration Attributes" translate=no>​</a></h3>
+<ul>
+<li class=""><em>phyHrpUwbCcConstraintLength</em></li>
+<li class=""><em>phyHrpUwbCurrentPulseShape</em></li>
+<li class=""><em>phyHrpUwbDataRatesSupported</em> †</li>
+<li class=""><em>phyHrpUwbLcpDelay2</em></li>
+<li class=""><em>phyHrpUwbLcpDelay3</em></li>
+<li class=""><em>phyHrpUwbLcpDelay4</em></li>
+<li class=""><em>phyHrpUwbLcpWeight1</em></li>
+<li class=""><em>phyHrpUwbLcpWeight2</em></li>
+<li class=""><em>phyHrpUwbLcpWeight3</em></li>
+<li class=""><em>phyHrpUwbLcpWeight4</em></li>
+<li class=""><em>phyHrpUwbPhrA0</em></li>
+<li class=""><em>phyHrpUwbPhrA1</em></li>
+<li class=""><em>phyHrpUwbPhrDataRate</em>
+<ul>
+<li class="">DRMDR is not a valid value (due to the different approach in handling data and TX/RX in OpenSTX)</li>
+</ul>
+</li>
+<li class=""><em>phyHrpUwbPsduSize</em></li>
+<li class=""><em>phyHrpUwbPsr</em></li>
+<li class=""><em>phyHrpUwbSfdSelector</em></li>
+</ul>
+<!-- -->
+</div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href=/docs/spec-rail/ral-buffer-manager-service><div class=pagination-nav__sublabel>Previous</div><div class=pagination-nav__label>RAL Buffer Manager Service</div></a><a class="pagination-nav__link pagination-nav__link--next" href=/docs/spec-rail/ral-execution-service><div class=pagination-nav__sublabel>Next</div><div class=pagination-nav__label>RAL Execution Service</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href=#introduction class="table-of-contents__link toc-highlight">Introduction</a><ul><li><a href=#related-documents class="table-of-contents__link toc-highlight">Related Documents</a></ul><li><a href=#commands class="table-of-contents__link toc-highlight">Commands</a><ul><li><a href=#ral_conf_set_cmd class="table-of-contents__link toc-highlight"><code>RAL_Conf_Set_Cmd</code></a><li><a href=#ral_conf_get_cmd class="table-of-contents__link toc-highlight"><code>RAL_Conf_Get_Cmd</code></a></ul><li><a href=#events class="table-of-contents__link toc-highlight">Events</a><ul><li><a href=#ral_conf_set_cmdendevt class="table-of-contents__link toc-highlight"><code>RAL_Conf_Set_CmdEndEvt</code></a><li><a href=#ral_conf_get_cmdendevt class="table-of-contents__link toc-highlight"><code>RAL_Conf_Get_CmdEndEvt</code></a></ul><li><a href=#configuration-attributes class="table-of-contents__link toc-highlight">Configuration Attributes</a><ul><li><a href=#notation class="table-of-contents__link toc-highlight">Notation</a><li><a href=#generic-configuration-attributes class="table-of-contents__link toc-highlight">Generic Configuration Attributes</a><li><a href=#uwb-configuration-attributes class="table-of-contents__link toc-highlight">UWB Configuration Attributes</a></ul></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class=footer__title>Specification</div><ul class="footer__items clean-list"><li class=footer__item><a class=footer__link-item href=/docs/spec-core/introduction>Core Services</a><li class=footer__item><a class=footer__link-item href=/docs/spec-rail/introduction>RAL Services</a><li class=footer__item><a class=footer__link-item href=/docs/glossary>Glossary</a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>OpenSTX</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org/about target=_blank rel="noopener noreferrer" class=footer__link-item>About<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/members target=_blank rel="noopener noreferrer" class=footer__link-item>Members<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/participate target=_blank rel="noopener noreferrer" class=footer__link-item>Participate<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/publications target=_blank rel="noopener noreferrer" class=footer__link-item>Publications<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div><div class="theme-layout-footer-column col footer__col"><div class=footer__title>More</div><ul class="footer__items clean-list"><li class=footer__item><a href=https://openstxfoundation.org target=_blank rel="noopener noreferrer" class=footer__link-item>openstxfoundation.org<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://github.com/openstx/public-specification target=_blank rel="noopener noreferrer" class=footer__link-item>public-specification (GitHub)<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a><li class=footer__item><a href=https://openstxfoundation.org/contact target=_blank rel="noopener noreferrer" class=footer__link-item>Contact<svg width=13.5 height=13.5 aria-label="(opens in new tab)" class=iconExternalLink_nPIU><use href=#theme-svg-external-link /></svg></a></ul></div></div><div class="footer__bottom text--center"><div class=footer__copyright>OpenSTX is hosted at the Linux Foundation. Copyright © 2026 The Linux Foundation. This draft specification is not an approved release.</div></div></div></footer></div></body>
