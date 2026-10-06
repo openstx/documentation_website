@@ -119,8 +119,10 @@ const config: Config = {
         {
           href: 'https://github.com/openstx/public-specification/issues/new/choose',
           position: 'right',
+          label: 'Spec Feedback',
           className: 'header-feedback-link',
           'aria-label': 'Give feedback on the specification',
+          title: 'Give feedback on the specification',
         },
       ],
     },
