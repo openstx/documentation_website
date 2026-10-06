@@ -116,6 +116,12 @@ const config: Config = {
           className: 'header-github-link',
           'aria-label': 'GitHub repository',
         },
+        {
+          href: 'https://github.com/openstx/public-specification/issues/new/choose',
+          position: 'right',
+          className: 'header-feedback-link',
+          'aria-label': 'Give feedback on the specification',
+        },
       ],
     },
     footer: {
