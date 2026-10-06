@@ -170,7 +170,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `OpenSTX is hosted at the Linux Foundation. Copyright © ${new Date().getFullYear()} The Linux Foundation. This is a draft specification, subject to change.`,
+      copyright: `OpenSTX is hosted at the Joint Development Foundation, part of the Linux Foundation family of organizations. Copyright © ${new Date().getFullYear()} Joint Development Foundation Projects, LLC. This is a draft specification, subject to change.`,
     },
     prism: {
       theme: prismThemes.github,
