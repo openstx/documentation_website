@@ -41,6 +41,12 @@
   letter-spacing: 0.02em;
 }
 
+/* The external-link icon Docusaurus adds to off-site navbar links is
+   redundant here — every top-level navbar link already leaves the site. */
+.navbar svg[aria-label='(opens in new tab)'] {
+  display: none;
+}
+
 .header-github-link:hover {
   opacity: 0.6;
 }
