@@ -32,8 +32,8 @@
 }
 
 [data-theme='dark'] .navbar {
-  --ifm-navbar-background-color: #180f36;
-  --ifm-navbar-link-color: #e4d9fe;
+  --ifm-navbar-background-color: #0e026a;
+  --ifm-navbar-link-color: #f5f3ff;
 }
 
 .navbar__title {
