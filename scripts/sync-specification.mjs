@@ -14,16 +14,16 @@ const DOCS_DIR = path.join(ROOT, 'docs');
 // Order here is the order the sections appear in the sidebar.
 const SECTIONS = [
   {
-    dest: 'spec-core',
-    label: 'Core Services',
-    description: 'Services provided by the OpenSTX Core layer.',
-    source: 'spec-core-services',
-  },
-  {
     dest: 'spec-general',
     label: 'General Description',
     description: 'Cross-cutting concepts and primitives shared by all layers.',
     source: 'spec-general-description',
+  },
+  {
+    dest: 'spec-core',
+    label: 'Core Services',
+    description: 'Services provided by the OpenSTX Core layer.',
+    source: 'spec-core-services',
   },
   {
     dest: 'spec-rail',
@@ -38,10 +38,13 @@ const SECTIONS = [
     source: 'spec-security',
   },
   {
+    // Shown as a direct sidebar link rather than an expandable category, so
+    // this one is handled separately from the other (folder) sections below.
     dest: 'glossary',
     label: 'Glossary',
     description: 'Centralized definitions of terms, concepts, and acronyms.',
     source: 'glossary.md',
+    flat: true,
   },
 ];
 
@@ -55,8 +58,9 @@ const SECTIONS = [
 const LINK_REWRITES = SECTIONS.flatMap((section) => {
   if (section.source === section.dest) return [];
   if (section.source.endsWith('.md')) {
-    // Single-file section becomes `<dest>/index.md`.
-    return [[`../${section.source}`, `../${section.dest}/index.md`]];
+    // Single-file section becomes `<dest>.md` (flat) or `<dest>/index.md`.
+    const destFile = section.flat ? `${section.dest}.md` : `${section.dest}/index.md`;
+    return [[`../${section.source}`, `../${destFile}`]];
   }
   return [[`../${section.source}/`, `../${section.dest}/`]];
 });
@@ -78,6 +82,9 @@ function assertSubmoduleIsPresent() {
 function rmManagedDocsSections() {
   for (const section of SECTIONS) {
     fs.rmSync(path.join(DOCS_DIR, section.dest), { recursive: true, force: true });
+    if (section.flat) {
+      fs.rmSync(path.join(DOCS_DIR, `${section.dest}.md`), { force: true });
+    }
   }
 }
 
@@ -100,6 +107,48 @@ function copyDirRecursive(srcDir, destDir) {
       fs.copyFileSync(srcPath, destPath);
     }
   }
+}
+
+// Inserts/overwrites frontmatter fields (e.g. `sidebar_position` so
+// "Introduction"/"Overview" pages sort to the top of their section's menu,
+// `sidebar_label` so a flat doc's sidebar entry doesn't just mirror its H1).
+function setFrontmatter(content, fields) {
+  const frontmatterMatch = content.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
+  let body = frontmatterMatch ? frontmatterMatch[1] : '';
+  for (const [key, value] of Object.entries(fields)) {
+    body = body.replace(new RegExp(`^${key}:.*$\\r?\\n?`, 'm'), '');
+  }
+  const lines = Object.entries(fields).map(([key, value]) => `${key}: ${value}`);
+  const newFrontmatter = `---\n${lines.join('\n')}\n${body ? body + '\n' : ''}---\n`;
+  const rest = frontmatterMatch ? content.slice(frontmatterMatch[0].length) : '\n' + content;
+  return newFrontmatter + rest;
+}
+
+function setSidebarPosition(content, position) {
+  return setFrontmatter(content, { sidebar_position: position });
+}
+
+// Ranks a section's top-level pages so "introduction" sorts first and
+// "overview" sorts second, keeping every other page in its existing
+// (alphabetical) order after them.
+function applySidebarPositions(destDir) {
+  const entries = fs
+    .readdirSync(destDir, { withFileTypes: true })
+    .filter((entry) => entry.isFile() && (entry.name.endsWith('.md') || entry.name.endsWith('.mdx')))
+    .map((entry) => entry.name)
+    .sort();
+
+  const rank = (name) => {
+    if (/introduction/i.test(name)) return 0;
+    if (/overview/i.test(name)) return 1;
+    return 2;
+  };
+  const ordered = [...entries].sort((a, b) => rank(a) - rank(b) || a.localeCompare(b));
+
+  ordered.forEach((name, index) => {
+    const filePath = path.join(destDir, name);
+    fs.writeFileSync(filePath, setSidebarPosition(fs.readFileSync(filePath, 'utf8'), index + 1));
+  });
 }
 
 function writeCategory(dest, label, description, position) {
@@ -127,10 +176,22 @@ function syncSection(section, position) {
     return;
   }
 
+  if (section.flat) {
+    // Rendered as a direct sidebar link (e.g. Glossary) rather than an
+    // expandable category, so it's a single top-level doc file instead of a
+    // folder with its own `_category_.json`.
+    const content = rewriteLinks(fs.readFileSync(sourcePath, 'utf8'));
+    fs.writeFileSync(
+      path.join(DOCS_DIR, `${section.dest}.md`),
+      setFrontmatter(content, { sidebar_position: position, sidebar_label: section.label }),
+    );
+    return;
+  }
+
   if (fs.statSync(sourcePath).isDirectory()) {
     copyDirRecursive(sourcePath, destPath);
+    applySidebarPositions(destPath);
   } else {
-    // Single-file section (glossary.md) becomes the index doc of its own folder.
     fs.mkdirSync(destPath, { recursive: true });
     fs.writeFileSync(path.join(destPath, 'index.md'), rewriteLinks(fs.readFileSync(sourcePath, 'utf8')));
   }
