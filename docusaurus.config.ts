@@ -71,7 +71,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/openstx-logo.svg',
+    image: 'img/openstx-logo.png',
     colorMode: {
       defaultMode: 'dark',
       respectPrefersColorScheme: true,
@@ -79,8 +79,8 @@ const config: Config = {
     navbar: {
       title: 'OpenSTX',
       logo: {
-        alt: 'OpenSTX logo',
-        src: 'img/openstx-logo.svg',
+        alt: 'OpenSTX Foundation logo',
+        src: 'img/openstx-logo.png',
       },
       items: [
         {href: `${OPENSTX_SITE_URL}/about`, label: 'About', position: 'left'},
@@ -156,7 +156,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `OpenSTX is hosted at the Linux Foundation. Copyright © ${new Date().getFullYear()} The Linux Foundation. This draft specification is not an approved release.`,
+      copyright: `OpenSTX is hosted at the Linux Foundation. Copyright © ${new Date().getFullYear()} The Linux Foundation. This is a draft specification, subject to change.`,
     },
     prism: {
       theme: prismThemes.github,

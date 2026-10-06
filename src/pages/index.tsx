@@ -8,14 +8,14 @@ import styles from './index.module.css';
 
 const SPEC_SECTIONS = [
   {
-    title: 'Core Services',
-    description: 'Services provided by the OpenSTX Core layer.',
-    to: '/docs/spec-core/introduction',
-  },
-  {
     title: 'General Description',
     description: 'Cross-cutting concepts and primitives shared by all layers.',
     to: '/docs/spec-general/primitives',
+  },
+  {
+    title: 'Core Services',
+    description: 'Services provided by the OpenSTX Core layer.',
+    to: '/docs/spec-core/introduction',
   },
   {
     title: 'RAL Services',
@@ -51,7 +51,7 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/spec-core/introduction">
+            to="/docs/spec-general/primitives">
             Read the Specification
           </Link>
           <Link

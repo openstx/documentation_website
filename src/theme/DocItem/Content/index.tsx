@@ -13,9 +13,7 @@ type Props = WrapperProps<typeof ContentType>;
 export default function ContentWrapper(props: Props): ReactNode {
   return (
     <>
-      <Admonition type="caution" title="Draft specification — subject to change.">
-        This is not an approved release.
-      </Admonition>
+      <Admonition type="caution" title="Draft specification — subject to change." />
       <Content {...props} />
     </>
   );
