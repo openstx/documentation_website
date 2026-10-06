@@ -25,13 +25,18 @@ jobs:
           submodules: recursive
 
       # The submodule is pinned to a commit in git, so a plain checkout can
-      # lag behind public-specification's main branch. Fast-forward it to the
-      # tip of main on every build so the deployed site always reflects the
-      # latest published specification content.
+      # lag behind public-specification's main branch. Check out the tip of
+      # main directly on every build so the deployed site always reflects the
+      # latest published specification content. This intentionally avoids
+      # `--merge`/`--rebase`: those require a commit-graph relationship
+      # between the pinned commit and the remote tip, and fail with "refusing
+      # to merge unrelated histories" if public-specification's main was ever
+      # force-pushed/rewritten upstream. A plain checkout has no such
+      # requirement.
       - name: Update specification submodule to latest main
         run: |
           git submodule set-branch --branch main -- specification
-          git submodule update --remote --merge specification
+          git submodule update --remote specification
           git -C specification log -1 --oneline
 
       - name: Set up Node.js
