@@ -56,7 +56,7 @@ function HomepageHeader() {
           </Link>
           <Link
             className="button button--outline button--lg"
-            style={{color: '#f5f3ff', borderColor: '#f5f3ff'}}
+            style={{color: '#eff6ff', borderColor: '#eff6ff'}}
             to="https://openstxfoundation.org/participate">
             Get Involved
           </Link>
