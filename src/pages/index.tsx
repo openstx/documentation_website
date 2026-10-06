@@ -42,7 +42,7 @@ function HomepageHeader() {
           OpenSTX Specification
         </Heading>
         <p className="hero__subtitle">
-          OpenSTX is a Linux Foundation-hosted initiative to standardize
+          OpenSTX is a Joint Development Foundation-hosted initiative to standardize
           Synchronous Transmission (STX) technology — a time-slotted,
           deterministic approach to wireless communication. This site hosts
           the draft technical specification developed by the OpenSTX working
