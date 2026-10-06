@@ -110,6 +110,12 @@ const config: Config = {
           position: 'right',
           label: 'Specification',
         },
+        {
+          href: 'https://github.com/openstx/public-specification',
+          position: 'right',
+          className: 'header-github-link',
+          'aria-label': 'GitHub repository',
+        },
       ],
     },
     footer: {
